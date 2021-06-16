@@ -51,16 +51,24 @@ end
 
 iteration = 100
 
-for i = 1:iteration
-    println(farbkreis(i, iteration), i)
+for i = 1:n
+    for j = 1:m
+        y = (2*i - n)/n * 1im
+        x = (3*j - 2*m)/m
+        z = x + y
+        old_z = x + y
+        f = []
+        for l = 1:iteration
+            if z in f
+                break
+            elseif abs(z)-abs(old_z) > 1
+                img[i, j] = farbkreis(l, iteration)
+                break
+            end
+            append!(f, z)
+            z = z^2 + old_z
+        end
+    end
 end
 
-
-# for i = 1:n
-#     for j = 1:m
-#         y = (2*i - n)/n * 1im
-#         x = (3*j - 2*m)/m
-#         println(x + y)
-
-#     end
-# end
+save("/Users/ambros.anrig/Documents/GitHub/Maturaarbeit_Ambros/Mandelbrotmenge.png", img)
