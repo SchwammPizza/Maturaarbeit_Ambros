@@ -61,7 +61,7 @@ for i = 1:n
         for l = 1:iteration
             if z in f
                 break
-            elseif abs(z)-abs(old_z) > 1
+            elseif abs(z)-abs(old_z) > 2
                 img[i, j] = farbkreis(l, iteration)
                 break
             end
