@@ -1,6 +1,6 @@
 using Images, Colors
 
-n = 720
+n = 720*16
 m = Int(n/720*1080)
 
 img = zeros(RGB{Float64},n,m)
@@ -71,4 +71,5 @@ for i = 1:n
     end
 end
 
-save("/Users/ambros.anrig/Documents/GitHub/Maturaarbeit_Ambros/Mandelbrotmenge.png", img)
+# save("/Users/ambros.anrig/Documents/GitHub/Maturaarbeit_Ambros/Mandelbrotmenge.png", img)
+save("/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbeit_Ambros/Mandelbrotmenge.png", img)
