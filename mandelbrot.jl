@@ -42,28 +42,36 @@ using Images, Colors
         end
     end
 
-    iteration = 200
-
-
-    for i = 1:n
-        for j = 1:m
-            y = (2*i - n)/n * 1im
-            x = (3*j - 2*m)/m
-            z = x + y
-            old_z = x + y
-            f = []
-            for l = 1:iteration
-                if z in f
-                    break
-                elseif abs(z)-abs(old_z) > 2
-                    img[i, j] = farbkreis(l, iteration)
-                    break
+    function mandelbrotmenge(farbe = true)
+        for i = 1:n
+            for j = 1:m
+                y = (2*i - n)/n * 1im
+                x = (3*j - 2*m)/m
+                z = x + y
+                old_z = x + y
+                f = []
+                for l = 1:iteration
+                    if z in f
+                        break
+                    elseif abs(z)-abs(old_z) > 2
+                        if farbe
+                            img[i, j] = farbkreis(l, iteration)
+                        else
+                            img[i, j] = 1
+                        end
+                        break
+                    end
+                    append!(f, z)
+                    z = z^2 + old_z
                 end
-                append!(f, z)
-                z = z^2 + old_z
             end
         end
     end
+
+    iteration = 200
+
+    mandelbrotmenge()
+    
 
 # save("/Users/ambros.anrig/Documents/GitHub/Maturaarbeit_Ambros/Mandelbrotmenge.png", img)
     save("/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbeit_Ambros/Mandelbrotmenge.png", img)

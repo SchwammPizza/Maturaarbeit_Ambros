@@ -10,7 +10,7 @@ using Images, Colors
     
     PointRealToIndex(c) = floor(Int64, ((real(c) + 2) * m / 3))
 
-    iteration = 150
+    iteration = 100
 
     for i = 1:n
         for j = 1:m
