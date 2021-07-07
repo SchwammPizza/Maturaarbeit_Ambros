@@ -1,8 +1,10 @@
 using Images, Colors
 
 @time begin
-    n = Int(720*35.9/359)
-    m = Int(n/720*1080)
+    midPoint = 0.25 + 0im
+    zoom = 1.62 * 10^32 # zoom > 0
+    n = Int(720*100)
+    m = Int(n/72*108)
 
     img = zeros(RGB{Float64}, n, m)
 
@@ -43,10 +45,12 @@ using Images, Colors
     end
 
     function mandelbrotmenge(farbe = true)
+        zoom_y = 2im/(zoom * n)
+
         for i = 1:n
             for j = 1:m
-                y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
-                x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
+                y = (n/2 - (i - 1)) * zoom_y - imag(midPoint)
+                x = (-m/2 + (j - 1)) * 3/(zoom * m) + real(midPoint)
                 z = x + y
                 old_z = x + y
                 f = []
@@ -72,5 +76,5 @@ using Images, Colors
 
     mandelbrotmenge()
     
-    save(string(@__DIR__) * "/Pictures/Mandelbrotmenge.png", img)
+    save(string(@__DIR__) * "/Pictures/Zooms/MandelbrotmengeZoomToPoint" * string(midPoint) * " withZoom" * string(zoom) * ".png", img)
 end
