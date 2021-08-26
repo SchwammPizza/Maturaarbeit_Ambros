@@ -34,7 +34,7 @@ using Images, Colors
         elseif i < 5*r
             return RGB{Float64}((i - 4*r)/r, 1, 0)
         elseif i == 5*r
-            returnRGB{Float64}(1, 1, 0)
+            return RGB{Float64}(1, 1, 0)
         elseif i < max_iteration
             return RGB{Float64}(1, (i - 5*r)/r, 0)
         else

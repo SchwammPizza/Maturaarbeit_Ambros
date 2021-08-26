@@ -2,9 +2,13 @@ using Images, Colors
 
 @time begin
     midPoint = 0.25 + 0im
-    zoom = 1.62 * 10^32 # zoom > 0
-    n = Int(720*100)
-    m = Int(n/72*108)
+    midPoint = -0.5 + 0im
+    # zoom = 1.62 * 10^32 # zoom > 0
+    zoom = 1
+    # n = Int(2160)
+    n = Int(700)
+    # m = Int(n/2160*4096)
+    m = 1400
 
     img = zeros(RGB{Float64}, n, m)
 
@@ -36,7 +40,7 @@ using Images, Colors
         elseif i < 5*r
             return RGB{Float64}((i - 4*r)/r, 1, 0)
         elseif i == 5*r
-            returnRGB{Float64}(1, 1, 0)
+            return RGB{Float64}(1, 1, 0)
         elseif i < max_iteration
             return RGB{Float64}(1, (i - 5*r)/r, 0)
         else
@@ -72,9 +76,9 @@ using Images, Colors
         end
     end
 
-    iteration = 200
+    iteration = 50
 
     mandelbrotmenge()
     
-    save(string(@__DIR__) * "/Pictures/Zooms/MandelbrotmengeZoomToPoint" * string(midPoint) * " withZoom" * string(zoom) * ".png", img)
+    save(string(@__DIR__) * "/Pictures/Zooms/MandelbrotmengeZoomToPoint" * string(midPoint) * " withZoom" * string(zoom) * "withIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img)
 end
