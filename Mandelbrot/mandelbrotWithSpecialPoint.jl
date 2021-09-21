@@ -5,10 +5,8 @@ using Images, Colors
     midPoint = -0.5 + 0im
     # zoom = 1.62 * 10^32 # zoom > 0
     zoom = 1
-    # n = Int(2160)
-    n = Int(700)
-    # m = Int(n/2160*4096)
-    m = 1400
+    n = Int(2160)
+    m = Int(n/2160*4096)
 
     img = zeros(RGB{Float64}, n, m)
 

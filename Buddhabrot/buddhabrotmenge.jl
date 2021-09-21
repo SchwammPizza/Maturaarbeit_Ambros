@@ -1,8 +1,8 @@
 using Images, Colors
 
 # variabeln deffinieren
-n = Int(720)
-m = Int(n/720*1080)
+n = Int(2434)
+m = Int(floor(n/438*720))
 
 color = false # entscheidet ob man ein Mandelbrot-Bild mitmacht oder nicht
 
