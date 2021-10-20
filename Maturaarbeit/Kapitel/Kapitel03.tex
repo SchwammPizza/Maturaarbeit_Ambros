@@ -1,15 +1,7 @@
-\section{Kapitel 1}
-
-So sieht eine Formel im Text aus: $\text{e}^{i\pi} + 1 = 0$.
-Und so als \glqq schöne\grqq{} Formel:
-\[ \text{e}^{i\pi} + 1 = 0 \]
-Mit Nummerierung:
-\begin{equation}
-    \int_M \text{d} w = \int_{\delta w} w
-\end{equation}
-
-\subsection{Unterkapitel 1}
-
-\subsection{Unterkapitel 2}
-
-\subsubsection{UnterUnterKapitel}
+\section{Methode}
+\subsection{Allgemeines Rechnen}
+Um diese Bilder zu generieren wurde mit der Programmiersprache Julia eine 2-Dimensionale Matrix erstell, bei dem jeder Wert der Matrix zu einem Pixel zugehört. Zuerst muss man jedoch wissen welche Punkte man iterieren muss, so rechnet man zuerst das Mandelbrot aus. Um Rechenleistung zu sparen, ordnet man ihnen die Werte 0 und 1 zu: 0 gehört nicht der Mandelbrotmenge an, 1 gehört der Mandelbrotmenge an. Alle Punkte der Mandelbrotmenge werden nochmals iteriert, nun wird geschaut wo die Punkte durchgehen, am Ende wird geschaut, welcher Punkt die meisten treffer bekam, den dieser Wert braucht man um die Grauabstufung zu machen. Wie man sicher schon merkt, muss mal 3 Mal die riesige Matrix durchgehen und auch 2-Mal iterieren. Dies ist somit sehr rechenaufwändig im Vergleich zur Mandelbrotmenge bei der nur ein durchlauf nötig wäre.
+\subsection{Erster Schritt}
+Hier wurde für den Zoom eine riesige Matrix , welches der Zoom im Quadrat so gross ist wie das erwartene Bild, erstellt mit all den Werten drin, die man braucht. Dann wurde der Teil ausgewählt, denn man haben möchte und lässt den Zeichen. Ein 16-Facher Zoom ist nicht mehr möglich, da die Matrix so gross wird, dass es nicht genügend RAM freiräumen kann. Ebenfalls dauert es dann schnell mal viel Zeit, ein 12-Facher Zoom, mit der Auflösung 4'000 auf 2'667 Pixel, zum Punk -1.25, dauerte etwa 45.6h. So wurde der Code folgend optimiert; Es wurde CUDA.jl hinzugefügt, um so mehrere Punkte gleichzeitig rechnen zu lassen. Ausserdem wurde geschaut, ob man recheneinheiten verkürzen kann.
+\subsection{Analyse}
+Da die Buddhabrotmenge als chaotisches System gilt, versucht man im Chaos ein muster zu finden. Als erstes wurde geschaut, ob ein gegebener Bereich einen überwiegender Einfluss hat auf einen Bereich, als die anderen Bereichen oder auch markant keinen Einfluss. So könnte man in einem Zoom, nurnoch den Bereich anschauen oder eben nicht. Dies wurde einfach bewertsteligt, indessen man Bilder erstellte, die zeigten wie sich Punkte aus den Bereichen iterierten. 

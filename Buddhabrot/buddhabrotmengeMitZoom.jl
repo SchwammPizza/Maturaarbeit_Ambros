@@ -3,13 +3,14 @@ using Images, Colors
 # variabeln deffinieren
 @time begin
     #Varierende variabeln
+    println(@__FILE__)
     n = Int(2667)
     m = Int(floor(n/720*1080))
 
-    iteration = 150
+    iteration = 1000
 
-    zoom = 4 #zoom != 0
-    zoomPoint = -1 + 0im
+    zoom = 1 #zoom != 0
+    zoomPoint = -0.5 + 0im
 
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)

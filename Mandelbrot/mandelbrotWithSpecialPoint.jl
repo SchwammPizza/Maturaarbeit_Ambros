@@ -1,10 +1,11 @@
 using Images, Colors
 
 @time begin
-    midPoint = 0.25 + 0im
-    midPoint = -0.5 + 0im
+    # midPoint = 0.25 + 0im
+    # midPoint = -0.5 + 0im
+    midPoint = -1.25066 + 0.02012im
     # zoom = 1.62 * 10^32 # zoom > 0
-    zoom = 1
+    zoom = 100000
     n = Int(2160)
     m = Int(n/2160*4096)
 
@@ -74,7 +75,7 @@ using Images, Colors
         end
     end
 
-    iteration = 50
+    iteration = 5000
 
     mandelbrotmenge()
     
