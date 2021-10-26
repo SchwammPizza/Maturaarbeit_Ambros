@@ -34,31 +34,30 @@ using Images, Colors, CUDA
     # erstellen der Funktionen
 
     function mandelbrotmenge(i, j) #bearbeitet das mandelbrot array so das nunroch 1 und 0 gibt, 1 für drausen und 0 für in der Menge 
-                y = (2*i - (n*zoom))/(n*zoom) * 1im
-                x = (3*j - 2*(m*zoom))/(m*zoom)
-                # append!(mandelbrot, [[i, j]])
-                z = x + y
-                old_z = x + y
-                f = []
-                for _ = 1:iteration
-                    if z in f
-                        break
-                    elseif abs(z)-abs(old_z) > 2
-                        # filter!(e->e≠[i,j], mandelbrot)
-                        return nothing
-                    end
-                    append!(f, z)
-                    z = z^2 + old_z
-                end
-                append!(mandelbrot, [[i, j]])
+        y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
+        x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
+        z = x + y
+        old_z = x + y
+        f = []
+        for _ = 1:iteration
+            if z in f
+                break
+            elseif abs(z) > 2
+                # filter!(e->e≠[i,j], mandelbrot)
                 return nothing
+            end
+            append!(f, z)
+            z = z^2 + old_z
+        end
+        append!(mandelbrot, [[i, j]])
+        return nothing
     end
 
     function berechnungBuddhaBrot(i, j) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
         global maxLanding
         
-        y = (2*i - (n*zoom))/(n*zoom) * 1im
-        x = (3*j - 2*(m*zoom))/(m*zoom)
+        y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
+        x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
         z = x + y
         old_z = x + y
         f = []
@@ -68,7 +67,7 @@ using Images, Colors, CUDA
 
             if z in f
                 break
-            elseif abs(z)-abs(old_z) > 2
+            elseif abs(z) > 2
                 break
             elseif true in (x > (m*zoom) , x < 1 , y > (n*zoom) , y < 1)
                 break

@@ -60,15 +60,15 @@ end
 function mandelbrotmenge()
     for i = 1:n
         for j = 1:m
-            y = (2*i - n)/n * 1im
-            x = (3*j - 2*m)/m
+            y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
+            x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
             z = x + y
             old_z = x + y
             f = []
             for l = 1:iteration
                 if z in f
                     break
-                elseif abs(z)-abs(old_z) > 2
+                elseif abs(z) > 2
                     if color
                         mandelbrotimg[i, j] = farbkreis(l, iteration)
                     else
@@ -86,8 +86,8 @@ end
 function berechnungBuddhaBrot(i, j)
     global maxLanding
     
-    y = (2*i - n)/n * 1im
-    x = (3*j - 2*m)/m
+    y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
+    x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
     z = x + y
     old_z = x + y
     f = []
@@ -97,7 +97,7 @@ function berechnungBuddhaBrot(i, j)
 
         if z in f
             break
-        elseif abs(z)-abs(old_z) > 2
+        elseif abs(z) > 2
             break
         elseif true in (x > m , x < 1 , y > n , y < 1)
             break

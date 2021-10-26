@@ -53,7 +53,7 @@ using Images, Colors
                 for l = 1:iteration
                     if z in f
                         break
-                    elseif abs(z)-abs(old_z) > 2
+                    elseif abs(z) > 2
                         if farbe
                             img[i, j] = farbkreis(l, iteration)
                         else

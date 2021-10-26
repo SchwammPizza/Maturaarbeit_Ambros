@@ -25,22 +25,24 @@ using Images, Colors
     # erstellen der array
     mandelbrot = zeros(Int8, n*zoom, m*zoom)
     img = zeros(RGB{Float64}, n, m)
+    bigimg = zeros(RGB{Float64}, n, m)
     maxValues = zeros(Int128, n*zoom, m*zoom)
-
+    bigmaxValues = zeros(Int128, n*zoom, m*zoom)
+    
     # erstellen der Funktionen
 
     function mandelbrotmenge() #bearbeitet das mandelbrot array so das nunroch 1 und 0 gibt, 1 für drausen und 0 für in der Menge
         for i = 1:(n*zoom)
             for j = 1:(m*zoom)
-                y = (2*i - (n*zoom))/(n*zoom) * 1im
-                x = (3*j - 2*(m*zoom))/(m*zoom)
+                y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
+                x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                 z = x + y
                 old_z = x + y
                 f = []
                 for _ = 1:iteration
                     if z in f
                         break
-                    elseif abs(z)-abs(old_z) > 2
+                    elseif abs(z) > 2
                         mandelbrot[i, j] = 1
                         break
                     end
@@ -53,9 +55,9 @@ using Images, Colors
 
     function berechnungBuddhaBrot(i, j) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
         global maxLanding
-        
-        y = (2*i - (n*zoom))/(n*zoom) * 1im
-        x = (3*j - 2*(m*zoom))/(m*zoom)
+         
+        y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
+        x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
         z = x + y
         old_z = x + y
         f = []
@@ -65,7 +67,7 @@ using Images, Colors
 
             if z in f
                 break
-            elseif abs(z)-abs(old_z) > 2
+            elseif abs(z) > 2
                 break
             elseif true in (x > (m*zoom) , x < 1 , y > (n*zoom) , y < 1)
                 break
@@ -80,8 +82,8 @@ using Images, Colors
         end
     end
 
-    function zeichnen(y, x)
-        return RGB{Float64}(maxValues[y, x]/maxLanding, maxValues[y, x]/maxLanding, maxValues[y, x]/maxLanding)
+    function zeichnen(y, x, liste = maxValues, maxL = maximum(maxValues))
+        return RGB{Float64}(liste[y, x]/maxL, liste[y, x]/maxL, liste[y, x]/maxL)
     end
 
     PointImagToIndex(c) = round(Int64, ((imag(c) + 1) * (n*zoom) / 2))
@@ -114,8 +116,20 @@ using Images, Colors
             end
         end
 
+        println(string(maximum(maxValues)) * " " * string(r))
+
+        bigmaxValues .+= maxValues
+        bigimg .+= img
+
         # Bildstellung
         save(string(@__DIR__) * "/Pictures/analyse/Analyse" * string(r) * "Zoom" * string(zoom) * "ToPoint" * string(zoomPoint) * "WithIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img)
 
     end 
+    for i = 1:n
+        for j = 1:m
+            img[i, j] = zeichnen(i + horizontal - 1, j + vertical - 1, bigmaxValues, maximum(bigmaxValues))
+        end
+    end
+    save(string(@__DIR__) * "/Pictures/analyse/BigAnalyse1" * "Zoom" * string(zoom) * "ToPoint" * string(zoomPoint) * "WithIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img)
+    save(string(@__DIR__) * "/Pictures/analyse/BigAnalyse2" * "Zoom" * string(zoom) * "ToPoint" * string(zoomPoint) * "WithIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", bigimg)
 end

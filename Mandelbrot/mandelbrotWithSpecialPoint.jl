@@ -2,12 +2,13 @@ using Images, Colors
 
 @time begin
     # midPoint = 0.25 + 0im
-    # midPoint = -0.5 + 0im
-    midPoint = -1.25066 + 0.02012im
+    midPoint = -0.5 + 0im
+    # midPoint = -1.25066 + 0.02012im
     # zoom = 1.62 * 10^32 # zoom > 0
-    zoom = 100000
+    zoom = 1
     n = Int(2160)
-    m = Int(n/2160*4096)
+    n = Int(720)
+    m = Int(round(n/2160*4096))
 
     img = zeros(RGB{Float64}, n, m)
 
@@ -48,19 +49,18 @@ using Images, Colors
     end
 
     function mandelbrotmenge(farbe = true)
-        zoom_y = 2im/(zoom * n)
 
         for i = 1:n
             for j = 1:m
-                y = (n/2 - (i - 1)) * zoom_y - imag(midPoint)
-                x = (-m/2 + (j - 1)) * 3/(zoom * m) + real(midPoint)
+                y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
+                x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                 z = x + y
                 old_z = x + y
                 f = []
                 for l = 1:iteration
                     if z in f
                         break
-                    elseif abs(z)-abs(old_z) > 2
+                    elseif abs(z) > 2
                         if farbe
                             img[i, j] = farbkreis(l, iteration)
                         else
@@ -75,9 +75,9 @@ using Images, Colors
         end
     end
 
-    iteration = 5000
+    iteration = 150
 
     mandelbrotmenge()
     
-    save(string(@__DIR__) * "/Pictures/Zooms/MandelbrotmengeZoomToPoint" * string(midPoint) * " withZoom" * string(zoom) * "withIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img)
+    save(string(@__DIR__) * "/Pictures/Zooms/Mandelbrot" * string(midPoint) * " withZoom" * string(zoom) * "withIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img)
 end
