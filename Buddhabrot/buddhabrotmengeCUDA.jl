@@ -6,13 +6,14 @@ using Images, Colors, CUDA
     m = Int(floor(n/720*1080))
     nm = CUDA.Array([n,m])
 
-    iteration = 1000
+    iteration = 1000000
     anzahlThreads = 25
 
-    zoom = 2  #zoom != 0
-    # zoomPoint = -1.25 + 0im
+    zoom = 6.25  #zoom != 0
+    zoomPoint = -1.25 + 0im
     # zoomPoint = -0.5 + 0.5im
-    zoomPoint = -0.5 + 0im
+    # zoomPoint = -0.5 + 0im
+    # zoom = 1
 
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
@@ -27,14 +28,12 @@ using Images, Colors, CUDA
     println(string(horizontal) * " " * string(vertical))
 
     # erstellen der array
-    img = CUDA.zeros(RGB{Float64}, nm[1], nm[2])
-    maxValues = CUDA.zeros(Int128, nm[1]*zoom, nm[2]*zoom)
 
-    mandelbrot = CUDA.zeros(Int8, nm[1]*zoom, nm[2]*zoom)
+    mandelbrot = CUDA.zeros(Int8, round(Int, n*zoom), round(Int, m*zoom))
 
     # erstellen der Funktionen
 
-    function mandelbrotmenge!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, mandelbrot::CuDeviceMatrix, f::CuDeviceVector{ComplexF64, 1}) #bearbeitet das mandelbrot array so das nunroch 1 und 0 gibt, 1 für drausen und 0 für in der Menge
+    function mandelbrotmenge!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, mandelbrot, f::CuDeviceVector{ComplexF64, 1}) #bearbeitet das mandelbrot array so das nunroch 1 und 0 gibt, 1 für drausen und 0 für in der Menge
         indexX = (blockIdx().x - 1) * blockDim().x + threadIdx().x
         strideX = blockDim().x * gridDim().x
         indexY = (blockIdx().y - 1) * blockDim().y + threadIdx().y
@@ -62,16 +61,16 @@ using Images, Colors, CUDA
         return nothing
     end
 
-    function bench_mandel!()
+    function bench_mandel!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, mandelbrot)
         f = CUDA.zeros(ComplexF64, iteration)
         f .= 3
         numblocks = ceil(Int, length(mandelbrot)/anzahlThreads)
         CUDA.@sync begin
-            @cuda threads=anzahlThreads blocks=numblocks mandelbrotmenge!(n*zoom, m*zoom, n, m, iteration, mandelbrot, f)
+            @cuda threads=anzahlThreads blocks=numblocks mandelbrotmenge!(nzoom, mzoom, n, m, iteration, mandelbrot, f)
         end
     end
 
-    function berechnungBuddhaBrot!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues::CuDeviceMatrix{Int128, 1}, mandelbrot::CuDeviceMatrix{Int8, 1}, f::CuDeviceVector{ComplexF64, 1}) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
+    function berechnungBuddhaBrot!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, f::CuDeviceVector{ComplexF64, 1}) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
         indexX = (blockIdx().x - 1) * blockDim().x + threadIdx().x
         strideX = blockDim().x * gridDim().x
         indexY = (blockIdx().y - 1) * blockDim().y + threadIdx().y
@@ -105,16 +104,16 @@ using Images, Colors, CUDA
         return nothing
     end
 
-    function bench_buddhi!()
+    function bench_buddhi!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot)
         f = CUDA.zeros(ComplexF64, iteration)
         f .= 3
         numblocks = ceil(Int, length(maxValues)/anzahlThreads)
         CUDA.@sync begin
-            @cuda threads=anzahlThreads blocks=numblocks berechnungBuddhaBrot!(n*zoom, m*zoom, n, m, iteration, maxValues, mandelbrot, f)
+            @cuda threads=anzahlThreads blocks=numblocks berechnungBuddhaBrot!(nzoom, mzoom, n, m, iteration, maxValues, mandelbrot, f)
         end
     end
 
-    function zeichnen(n::Int64, m::Int64, maxValues::CuDeviceMatrix{Int128, 1}, img::CuDeviceMatrix{RGB{Float64}, 1}, maxLanding::Int128, Ho_Ve::CuDeviceVector{Int64, 1})
+    function zeichnen(n::Int64, m::Int64, horizontal::Int64, vertical::Int64, maxValues, img, maxLanding::Int128)
         indexX = (blockIdx().x - 1) * blockDim().x + threadIdx().x
         strideX = blockDim().x * gridDim().x
         indexY = (blockIdx().y - 1) * blockDim().y + threadIdx().y
@@ -122,17 +121,15 @@ using Images, Colors, CUDA
 
         for i = indexX:strideX:n
             for j = indexY:strideY:m
-                y=i+Ho_Ve[1]-1
-                x=j+Ho_Ve[2]-1
-                img[y,x] = RGB{Float64}(maxValues[i, j]/maxLanding, maxValues[i, j]/maxLanding, maxValues[i, j]/maxLanding)
+                img[i, j] = RGB{Float64}(maxValues[i+horizontal-1, j+vertical-1]/maxLanding, maxValues[i+horizontal-1, j+vertical-1]/maxLanding, maxValues[i+horizontal-1, j+vertical-1]/maxLanding)
             end
         end
     end
 
-    function bench_zeich!()
+    function bench_zeich!(n::Int64, m::Int64, horizontal::Int64, vertical::Int64, maxValues, img, maxLanding::Int128)
         numblocks = ceil(Int, length(maxValues)/anzahlThreads)
         CUDA.@sync begin
-            @cuda threads=anzahlThreads blocks=numblocks zeichnen(n, m, maxValues, img, maximum(maxValues), Ho_Ve)
+            @cuda threads=anzahlThreads blocks=numblocks zeichnen(n, m, horizontal, vertical, maxValues, img, maxLanding)
         end
     end
 
@@ -143,16 +140,18 @@ using Images, Colors, CUDA
         exit()
     end
 
-    bench_mandel!()
-    bench_buddhi!()
-
+    bench_mandel!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration, mandelbrot)
+    maxValues = CUDA.zeros(Int128, round(Int,n*zoom), round(Int,m*zoom))
+    bench_buddhi!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration, maxValues, mandelbrot)
     mandelbrot = nothing
     
-    bench_zeich!()
-
+    img = CUDA.zeros(RGB{Float64}, n, m)
+    println(findmax(maxValues))
+    bench_zeich!(n, m, horizontal, vertical, maxValues, img, maximum(maxValues))
+    
     # Bildstellung
     img_cpu = zeros(RGB{Float64}, n, m)
     img_cpu .= img
     # print(img_cpu)
-    save(string(@__DIR__) * "/Pictures/BuddhabrotmengeWithZoomGPU" * string(zoom) * "ToPoint" * string(zoomPoint) * "WithIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img_cpu)
+    save(string(@__DIR__) * "/Pictures/gpu/BuddhabrotmengeWithZoomGPU" * string(zoom) * "ToPoint" * string(zoomPoint) * "WithIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img_cpu)
 end
