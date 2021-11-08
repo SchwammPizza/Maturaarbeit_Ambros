@@ -117,5 +117,5 @@ using Images, Colors, CUDA
     img_cpu = zeros(RGB{Float64}, n, m)
     img_cpu .= img
     # print(img_cpu)
-    save(string(@__DIR__) * "/Pictures/ABuddhabrotmengeWithZoomGPU" * string(zoom) * "ToPoint" * string(zoomPoint) * "WithIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img_cpu)
+    save(string(@__DIR__) * "/Pictures/ABuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n).png", img_cpu)
 end

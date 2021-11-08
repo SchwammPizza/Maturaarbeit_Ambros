@@ -6,14 +6,14 @@ using Images, Colors, CUDA
     m = Int(floor(n/720*1080))
     nm = CUDA.Array([n,m])
 
-    iteration = 1000000
-    anzahlThreads = 25
+    iteration = 1000
+    anzahlThreads = 256
 
-    zoom = 6.25  #zoom != 0
-    zoomPoint = -1.25 + 0im
+    # zoom = 6.25  #zoom != 0
+    # zoomPoint = -1.25 + 0im
     # zoomPoint = -0.5 + 0.5im
-    # zoomPoint = -0.5 + 0im
-    # zoom = 1
+    zoomPoint = -0.5 + 0im
+    zoom = 1
 
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
@@ -22,9 +22,6 @@ using Images, Colors, CUDA
     # verschiebung des Bildes im gesamt array
     horizontal = Int(floor(zoomPointAsMatrixPoint[1] - n/2))        # zuerst die auf der Komplexe-ebene rechtere
     vertical = Int(floor(zoomPointAsMatrixPoint[2] - m/2))      # zuerst die auf der Komplexe-ebene höchere
-    Ho_Ve = CUDA.zeros(Int64, 2)
-    Ho_Ve[1] = horizontal
-    Ho_Ve[2] = vertical #So sonst ist es nicht CuDeviceVector
     println(string(horizontal) * " " * string(vertical))
 
     # erstellen der array
@@ -91,10 +88,11 @@ using Images, Colors, CUDA
                             break
                         elseif abs(z) > 2
                             break
-                        elseif x > mzoom || x < 1 || y > nzoom || y < 1
-                            break
                         end
-                        maxValues[y, x] += 1
+                        if (1 < x < mzoom) & (1 < y < nzoom)
+                            maxValues[y, x] += 1
+                        end
+                        
                         f[r] = z
                         z = z^2 + old_z
                     end
@@ -153,5 +151,5 @@ using Images, Colors, CUDA
     img_cpu = zeros(RGB{Float64}, n, m)
     img_cpu .= img
     # print(img_cpu)
-    save(string(@__DIR__) * "/Pictures/gpu/BuddhabrotmengeWithZoomGPU" * string(zoom) * "ToPoint" * string(zoomPoint) * "WithIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img_cpu)
+    save(string(@__DIR__) * "/Pictures/gpu/BuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n).png", img_cpu)
 end

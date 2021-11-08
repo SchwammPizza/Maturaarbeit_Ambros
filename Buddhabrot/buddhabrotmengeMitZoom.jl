@@ -114,5 +114,5 @@ using Images, Colors
     end
 
     # Bildstellung
-    save(string(@__DIR__) * "/Pictures/BuddhabrotmengeWithZoom" * string(zoom) * "ToPoint" * string(zoomPoint) * "WithIteration" * string(iteration) * "withResolution" * string(m) * "x" * string(n) * ".png", img)
+    save(string(@__DIR__) * "/Pictures/BuddhabrotmengeWithZoom$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n).png", img)
 end #Fehler evt in Zeilen 87 , 89
