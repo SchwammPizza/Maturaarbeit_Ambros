@@ -67,7 +67,7 @@ using Images, Colors, CUDA
         end
     end
 
-    function berechnungBuddhaBrot!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, f::CuDeviceVector{ComplexF64, 1}, startx, starty, endx, endy) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
+    function berechnungBuddhaBrot!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, f::CuDeviceVector{ComplexF64, 1}, startx, starty, endx, endy, q) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
         indexX = (blockIdx().x - 1) * blockDim().x + threadIdx().x + startx
         strideX = blockDim().x * gridDim().x
         indexY = (blockIdx().y - 1) * blockDim().y + threadIdx().y + starty
@@ -80,21 +80,23 @@ using Images, Colors, CUDA
                     x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                     z = x + y
                     old_z = x + y
-                    for r = 1:iteration
-                        y = CUDA.floor(Int64, (imag(z)+1)*nzoom/2)
-                        x = CUDA.floor(Int64, (real(z)+2)*mzoom/3)
+                    if q==1 ⊻ (abs(z) > 1)
+                        for r = 1:iteration
+                            y = CUDA.floor(Int64, (imag(z)+1)*nzoom/2)
+                            x = CUDA.floor(Int64, (real(z)+2)*mzoom/3)
 
-                        if z in f
-                            break
-                        elseif abs(z) > 2
-                            break
+                            if z in f
+                                break
+                            elseif abs(z) > 2
+                                break
+                            end
+                            if (1 < x < mzoom) & (1 < y < nzoom)
+                                maxValues[y, x] += 1
+                            end
+                            
+                            f[r] = z
+                            z = z^2 + old_z
                         end
-                        if (1 < x < mzoom) & (1 < y < nzoom)
-                            maxValues[y, x] += 1
-                        end
-                        
-                        f[r] = z
-                        z = z^2 + old_z
                     end
                 end
             end
@@ -102,12 +104,12 @@ using Images, Colors, CUDA
         return nothing
     end
 
-    function bench_buddhi!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, startx, endx, starty, endy)
+    function bench_buddhi!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, startx, endx, starty, endy, q)
         f = CUDA.zeros(ComplexF64, iteration)
         f .= 3
         numblocks = ceil(Int, length(maxValues)/anzahlThreads)
         CUDA.@sync begin
-            @cuda threads=anzahlThreads blocks=numblocks berechnungBuddhaBrot!(nzoom, mzoom, n, m, iteration, maxValues, mandelbrot, f, startx, starty, endx, endy)
+            @cuda threads=anzahlThreads blocks=numblocks berechnungBuddhaBrot!(nzoom, mzoom, n, m, iteration, maxValues, mandelbrot, f, startx, starty, endx, endy, q)
         end
     end
 
@@ -136,15 +138,17 @@ using Images, Colors, CUDA
     big_img = CUDA.zeros(RGB{Float64}, n, m)
     bench_mandel!(n*zoom, m*zoom, n, m, iteration, mandelbrot)
     for r = 1:4
-        global maxValues = CUDA.zeros(Int128, round(Int,n*zoom), round(Int,m*zoom))
-        global img = CUDA.zeros(RGB{Float64}, n, m)
-        bench_buddhi!(n*zoom, m*zoom, n, m, iteration, maxValues, mandelbrot, round(Int64, ((imag(floor((r-1)/2)*-1im)) + 1) * (n*zoom) / 2)+1, round(Int64, ((imag(-1im*floor((r-3)/2)) + 1) * (n*zoom) / 2)), round(Int64, ((real(2*abs(r-2.5)-3) + 2) * (m*zoom) / 3))+1, round(Int64, ((real(abs(r-2.5)-0.5) + 2) * (m*zoom) / 3)))
-        bench_zeich!(n,m,horizontal,vertical,maxValues,img,maximum(maxValues))
-        println(maximum(maxValues))
-        global img_cpu = zeros(RGB{Float64}, n, m)
-        img_cpu .= img
-        big_max .+= maxValues
-        save(string(@__DIR__) * "/Pictures/gpu/analyse/$(r)AnalyBuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n).png", img_cpu)
+        for q = 0:1
+            global maxValues = CUDA.zeros(Int128, round(Int,n*zoom), round(Int,m*zoom))
+            global img = CUDA.zeros(RGB{Float64}, n, m)
+            bench_buddhi!(n*zoom, m*zoom, n, m, iteration, maxValues, mandelbrot, round(Int64, ((imag(floor((r-1)/2)*-1im)) + 1) * (n*zoom) / 2)+1, round(Int64, ((imag(-1im*floor((r-3)/2)) + 1) * (n*zoom) / 2)), round(Int64, ((real(2*abs(r-2.5)-3) + 2) * (m*zoom) / 3))+1, round(Int64, ((real(abs(r-2.5)-0.5) + 2) * (m*zoom) / 3)), q)
+            bench_zeich!(n,m,horizontal,vertical,maxValues,img,maximum(maxValues))
+            println(maximum(maxValues))
+            global img_cpu = zeros(RGB{Float64}, n, m)
+            img_cpu .= img
+            big_max .+= maxValues
+            save(string(@__DIR__) * "/Pictures/gpu/analyse/second/$(r)$(q)AnalyBuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n).png", img_cpu)
+        end
     end
     println(maximum(big_max))
     bench_zeich!(n,m,horizontal,vertical,big_max,big_img,maximum(big_max))
