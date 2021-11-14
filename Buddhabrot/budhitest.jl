@@ -37,7 +37,7 @@ using Images, Colors, CUDA
         y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
         x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
         z = x + y
-        old_z = x + y
+        c = x + y
         f = []
         for _ = 1:iteration
             if z in f
@@ -47,7 +47,7 @@ using Images, Colors, CUDA
                 return nothing
             end
             append!(f, z)
-            z = z^2 + old_z
+            z = z^2 + c
         end
         append!(mandelbrot, [[i, j]])
         return nothing
@@ -59,7 +59,7 @@ using Images, Colors, CUDA
         y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
         x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
         z = x + y
-        old_z = x + y
+        c = x + y
         f = []
         for _ = 1:iteration
             y = PointImagToIndex(z)
@@ -74,7 +74,7 @@ using Images, Colors, CUDA
             end
             maxValues[y, x] += 1
             append!(f, z)
-            z = z^2 + old_z
+            z = z^2 + c
         end
         return nothing
     end

@@ -44,7 +44,7 @@ using Images, Colors, CUDA
     #             y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
     #             x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
     #             z = x + y
-    #             old_z = x + y
+    #             c = x + y
                 
     #             for r = 1:iteration
     #                 if z in f
@@ -54,7 +54,7 @@ using Images, Colors, CUDA
     #                     break
     #                 end
     #                 f[r] = z
-    #                 z = z^2 + old_z
+    #                 z = z^2 + c
     #             end
     #         end
     #     end
@@ -79,11 +79,11 @@ using Images, Colors, CUDA
         for i = indexX:strideX:nzoom
             for j = indexY:strideY:mzoom
                 o[1] += i+j
-                s = 0 # um schauen wie lange old_z dazue gehört
+                s = 0 # um schauen wie lange c dazue gehört
                 y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
                 x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                 z = x + y
-                old_z = x + y
+                c = x + y
                 zbreak = false
                 for r = 1:iteration
                     y = CUDA.floor(Int64, (imag(z)+1)*nzoom/2)
@@ -97,7 +97,7 @@ using Images, Colors, CUDA
                     end
                     s += 1
                     f[r] = z
-                    z = z^2 + old_z
+                    z = z^2 + c
                 end
                 if zbreak
                     for l = 1:s

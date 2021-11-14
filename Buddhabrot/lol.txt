@@ -1,0 +1,27 @@
+(1334.5, 2001.0)
+1 1
+4
+39
+91
+62
+92
+62
+4
+40
+100
+1222.382513 seconds (65.37 M allocations: 6.367 GiB, 0.16% gc time, 0.11% compilation time)
+0
+
+(1334.5, 2001.0)
+1 1
+4
+229
+352
+153
+352
+152
+4
+229
+359
+15196.392679 seconds (975.08 k allocations: 2.736 GiB, 0.00% gc time, 0.00% compilation time)
+0

@@ -63,7 +63,7 @@ function mandelbrotmenge()
             y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
             x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
             z = x + y
-            old_z = x + y
+            c = x + y
             f = []
             for l = 1:iteration
                 if z in f
@@ -77,7 +77,7 @@ function mandelbrotmenge()
                     break
                 end
                 append!(f, z)
-                z = z^2 + old_z
+                z = z^2 + c
             end
         end
     end
@@ -89,7 +89,7 @@ function berechnungBuddhaBrot(i, j)
     y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
     x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
     z = x + y
-    old_z = x + y
+    c = x + y
     f = []
     for _ = 1:iteration
         y = PointImagToIndex(z)
@@ -108,7 +108,7 @@ function berechnungBuddhaBrot(i, j)
             maxLanding = maxValues[y, x]
         end
         append!(f, z)
-        z = z^2 + old_z
+        z = z^2 + c
     end
 end
 

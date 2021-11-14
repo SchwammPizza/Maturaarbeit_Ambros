@@ -41,17 +41,17 @@ using Images, Colors, CUDA
                 y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
                 x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                 z = x + y
-                old_z = x + y
+                c = x + y
                 
                 for r = 1:iteration
                     if z in f
                         break
-                    elseif abs(z) > 2
+                    elseif (abs(z) > 2) || (abs(z) > abs(c))
                         mandelbrot[i, j] += 1
                         break
                     end
                     f[r] = z
-                    z = z^2 + old_z
+                    z = z^2 + c
                 end
             end
         end
@@ -79,22 +79,24 @@ using Images, Colors, CUDA
                     y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
                     x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                     z = x + y
-                    old_z = x + y
-                    for r = 1:iteration
-                        y = CUDA.floor(Int64, (imag(z)+1)*nzoom/2)
-                        x = CUDA.floor(Int64, (real(z)+2)*mzoom/3)
+                    if !((abs(z) > 1) & (x >= 0))    
+                        c = x + y
+                        for r = 1:iteration
+                            y = CUDA.floor(Int64, (imag(z)+1)*nzoom/2)
+                            x = CUDA.floor(Int64, (real(z)+2)*mzoom/3)
 
-                        if z in f
-                            break
-                        elseif abs(z) > 2
-                            break
+                            if z in f
+                                break
+                            elseif abs(z) > 2
+                                break
+                            end
+                            if (1 < x < mzoom) & (1 < y < nzoom)
+                                maxValues[y, x] += 1
+                            end
+                            
+                            f[r] = z
+                            z = z^2 + c
                         end
-                        if (1 < x < mzoom) & (1 < y < nzoom)
-                            maxValues[y, x] += 1
-                        end
-                        
-                        f[r] = z
-                        z = z^2 + old_z
                     end
                 end
             end

@@ -6,7 +6,7 @@ using Images, Colors, CUDA
     m = Int(floor(n/720*1080))
     nm = CUDA.Array([n,m])
 
-    iteration = 1000
+    iteration = 100
     anzahlThreads = 256
 
     # zoom = 6.25  #zoom != 0
@@ -41,7 +41,7 @@ using Images, Colors, CUDA
                 y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
                 x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                 z = x + y
-                old_z = x + y
+                c = x + y
                 
                 for r = 1:iteration
                     if z in f
@@ -51,7 +51,7 @@ using Images, Colors, CUDA
                         break
                     end
                     f[r] = z
-                    z = z^2 + old_z
+                    z = z^2 + c
                 end
             end
         end
@@ -67,19 +67,19 @@ using Images, Colors, CUDA
         end
     end
 
-    function berechnungBuddhaBrot!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, f::CuDeviceVector{ComplexF64, 1}, startx, starty, endx, endy, q) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
-        indexX = (blockIdx().x - 1) * blockDim().x + threadIdx().x + startx
-        strideX = blockDim().x * gridDim().x
-        indexY = (blockIdx().y - 1) * blockDim().y + threadIdx().y + starty
-        strideY = blockDim().y * gridDim().y
+    function berechnungBuddhaBrot!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, f::CuDeviceVector{ComplexF64, 1}, starty, startx, endy, endx, q) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
+        indexY = (blockIdx().x - 1) * blockDim().x + threadIdx().x + starty
+        strideY = blockDim().x * gridDim().x
+        indexX = (blockIdx().y - 1) * blockDim().y + threadIdx().y + startx
+        strideX = blockDim().y * gridDim().y
         
-        for i = indexX:strideX:endx
-            for j = indexY:strideY:endy
+        for i = indexY:strideY:endy
+            for j = indexX:strideX:endx
                 if mandelbrot[i, j] != 0
                     y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
                     x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                     z = x + y
-                    old_z = x + y
+                    c = x + y
                     if q==1 ⊻ (abs(z) > 1)
                         for r = 1:iteration
                             y = CUDA.floor(Int64, (imag(z)+1)*nzoom/2)
@@ -95,7 +95,7 @@ using Images, Colors, CUDA
                             end
                             
                             f[r] = z
-                            z = z^2 + old_z
+                            z = z^2 + c
                         end
                     end
                 end
@@ -104,12 +104,12 @@ using Images, Colors, CUDA
         return nothing
     end
 
-    function bench_buddhi!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, startx, endx, starty, endy, q)
+    function bench_buddhi!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot, starty, endy, startx, endx, q)
         f = CUDA.zeros(ComplexF64, iteration)
         f .= 3
         numblocks = ceil(Int, length(maxValues)/anzahlThreads)
         CUDA.@sync begin
-            @cuda threads=anzahlThreads blocks=numblocks berechnungBuddhaBrot!(nzoom, mzoom, n, m, iteration, maxValues, mandelbrot, f, startx, starty, endx, endy, q)
+            @cuda threads=anzahlThreads blocks=numblocks berechnungBuddhaBrot!(nzoom, mzoom, n, m, iteration, maxValues, mandelbrot, f, starty, startx, endy, endx, q)
         end
     end
 
@@ -141,7 +141,7 @@ using Images, Colors, CUDA
         for q = 0:1
             global maxValues = CUDA.zeros(Int128, round(Int,n*zoom), round(Int,m*zoom))
             global img = CUDA.zeros(RGB{Float64}, n, m)
-            bench_buddhi!(n*zoom, m*zoom, n, m, iteration, maxValues, mandelbrot, round(Int64, ((imag(floor((r-1)/2)*-1im)) + 1) * (n*zoom) / 2)+1, round(Int64, ((imag(-1im*floor((r-3)/2)) + 1) * (n*zoom) / 2)), round(Int64, ((real(2*abs(r-2.5)-3) + 2) * (m*zoom) / 3))+1, round(Int64, ((real(abs(r-2.5)-0.5) + 2) * (m*zoom) / 3)), q)
+            bench_buddhi!(n*zoom, m*zoom, n, m, iteration, maxValues, mandelbrot, round(Int64, ((imag(floor((r-1)/2)*-1im)) + 1) * (n*zoom) / 2)+1, round(Int64, ((imag(-1im*floor((r-3)/2)) + 1) * (n*zoom) / 2)), round(Int64, ((2*abs(r-2.5)-1) * (m*zoom) / 3))+1, round(Int64, ((abs(r-2.5)+1.5) * (m*zoom) / 3)), q)
             bench_zeich!(n,m,horizontal,vertical,maxValues,img,maximum(maxValues))
             println(maximum(maxValues))
             global img_cpu = zeros(RGB{Float64}, n, m)
