@@ -46,7 +46,7 @@ using Images, Colors, CUDA
                 for r = 1:iteration
                     if z in f
                         break
-                    elseif (abs(z) > 2) || (abs(z) > abs(c))
+                    elseif (abs(z) > 2)
                         mandelbrot[i, j] += 1
                         break
                     end
@@ -79,7 +79,7 @@ using Images, Colors, CUDA
                     y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
                     x = (3*j - 2*m)/m # definitionbereich = [-2, 1]
                     z = x + y
-                    if !((abs(z) > 1) & (x >= 0))    
+                    if !((abs(z) > 1) & (x >= 0))
                         c = x + y
                         for r = 1:iteration
                             y = CUDA.floor(Int64, (imag(z)+1)*nzoom/2)
