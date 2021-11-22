@@ -46,7 +46,7 @@ using Images, Colors, CUDA
                 for r = 1:iteration
                     if z in f
                         break
-                    elseif (abs(z) > 2)
+                    elseif abs(z) > 2
                         mandelbrot[i, j] += 1
                         break
                     end
