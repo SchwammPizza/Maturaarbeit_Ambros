@@ -68,7 +68,7 @@ function mandelbrotmenge()
             for l = 1:iteration
                 if z in f
                     break
-                elseif abs(z) > 2
+                elseif abs(z) >= 2
                     if color
                         mandelbrotimg[i, j] = farbkreis(l, iteration)
                     else
@@ -97,7 +97,7 @@ function berechnungBuddhaBrot(i, j)
 
         if z in f
             break
-        elseif abs(z) > 2
+        elseif abs(z) >= 2
             break
         elseif true in (x > m , x < 1 , y > n , y < 1)
             break

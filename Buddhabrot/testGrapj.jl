@@ -1,16 +1,4 @@
-using Colors, Images
-
-n = 2667
-m = 4000
-
-img = zeros(RGB{Float64}, n, m)
-
-for i = 1:n
-    for j = 1:m
-        if (-i > (28.7*n)*j/(4*m) - m*9.5/4)
-            img[i, j] = RGB{Float64}(1,1,1)
-        end
-    end
-end
-
-save(string(@__DIR__) * "/Pictures/gpu/analyse/test.png", img)
+if (-i > (28.7*n)*j/(4*m) - m*9.5/4)
+if (((j-4340)^2+(i-n/2)^2>(2.5/3*m)^2) & (i < n/2-50)) || (i > 9 * n/(2*m^2)*(j-m)^2+n/2)
+if (((j-4340)^2+(i-n/2)^2>(2.5/3*m)^2) & (i > n/2+50)) || (i < -9 * n/(2*m^2)*(j-m)^2+n/2)
+if (i > (28.7*n)*j/(3.8*m) - n*13/3.8)

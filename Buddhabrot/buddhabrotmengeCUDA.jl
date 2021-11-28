@@ -4,7 +4,6 @@ using Images, Colors, CUDA
     #Varierende variabeln
     n = Int(2667)
     m = Int(floor(n/720*1080))
-    nm = CUDA.Array([n,m])
 
     iteration = 1000
     anzahlThreads = 256
@@ -46,7 +45,7 @@ using Images, Colors, CUDA
                 for r = 1:iteration
                     if z in f
                         break
-                    elseif abs(z) > 2
+                    elseif abs(z) >= 2
                         mandelbrot[i, j] += 1
                         break
                     end
@@ -87,7 +86,7 @@ using Images, Colors, CUDA
 
                             if z in f
                                 break
-                            elseif abs(z) > 2
+                            elseif abs(z) >= 2
                                 break
                             end
                             if (1 < x < mzoom) & (1 < y < nzoom)
@@ -152,6 +151,11 @@ using Images, Colors, CUDA
     # Bildstellung
     img_cpu = zeros(RGB{Float64}, n, m)
     img_cpu .= img
+    # for i = 1:n
+    #     for j in 1:m
+        #     img[i,j] .^= .5
+        # end
+    # end
     # print(img_cpu)
-    save(string(@__DIR__) * "/Pictures/gpu/BuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n).png", img_cpu)
+    save(string(@__DIR__) * "/Pictures/gpu/BuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n)high.png", img_cpu)
 end

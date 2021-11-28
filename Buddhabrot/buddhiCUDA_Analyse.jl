@@ -4,9 +4,8 @@ using Images, Colors, CUDA
     #Varierende variabeln
     n = Int(2667)
     m = Int(floor(n/720*1080))
-    nm = CUDA.Array([n,m])
 
-    iteration = 100
+    iteration = 1000
     anzahlThreads = 256
 
     # zoom = 6.25  #zoom != 0
@@ -46,7 +45,7 @@ using Images, Colors, CUDA
                 for r = 1:iteration
                     if z in f
                         break
-                    elseif abs(z) > 2
+                    elseif abs(z) >= 2
                         mandelbrot[i, j] += 1
                         break
                     end
@@ -87,7 +86,7 @@ using Images, Colors, CUDA
 
                             if z in f
                                 break
-                            elseif abs(z) > 2
+                            elseif abs(z) >= 2
                                 break
                             end
                             if (1 < x < mzoom) & (1 < y < nzoom)
@@ -122,6 +121,7 @@ using Images, Colors, CUDA
         for i = indexX:strideX:n
             for j = indexY:strideY:m
                 img[i, j] = RGB{Float64}(maxValues[i+horizontal-1, j+vertical-1]/maxLanding, maxValues[i+horizontal-1, j+vertical-1]/maxLanding, maxValues[i+horizontal-1, j+vertical-1]/maxLanding)
+                img[i,j] ^= .5
             end
         end
     end

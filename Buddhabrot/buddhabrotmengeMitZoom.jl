@@ -43,7 +43,7 @@ using Images, Colors
                 for _ = 1:iteration
                     if z in f
                         break
-                    elseif abs(z) > 2
+                    elseif abs(z) >= 2
                         mandelbrot[i, j] = 1
                         break
                     end
@@ -68,7 +68,7 @@ using Images, Colors
 
             if z in f
                 break
-            elseif abs(z) > 2
+            elseif abs(z) >= 2
                 break
             elseif true in (x > (m*zoom) , x < 1 , y > (n*zoom) , y < 1)
                 break
