@@ -2,17 +2,14 @@ using Images, Colors, CUDA
 
 @time begin
     #Varierende variabeln
-    n = Int(2667)
-    m = Int(floor(n/720*1080))
+    n = Int(2668)
+    m = Int(floor(n/2*3))
 
-    iteration = 1000
+    iteration = 100
     anzahlThreads = 256
 
-    # zoom = 6.25  #zoom != 0
-    # zoomPoint = -1.25 + 0im
-    # zoomPoint = -0.5 + 0.5im
-    zoomPoint = -0.5 + 0im
-    zoom = 1
+    zoomPoint = -1.25 + 0im
+    zoom = 6.25
 
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
@@ -145,7 +142,7 @@ using Images, Colors, CUDA
     mandelbrot = nothing
     
     img = CUDA.zeros(RGB{Float64}, n, m)
-    println(findmax(maxValues))
+    println(maximum(maxValues))
     bench_zeich!(n, m, horizontal, vertical, maxValues, img, maximum(maxValues))
     
     # Bildstellung

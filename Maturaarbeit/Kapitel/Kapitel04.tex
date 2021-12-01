@@ -5,18 +5,14 @@ Beim ersten Zoom war ein 16-Facher Zoom nicht mehr möglich, da die Matrix so gr
 Durch die CUDA optimierung kann man nur noch einen 6.5-fachen Zoom machen. Dies ist eigentlich egal, denn es geht ja darum, die Rechenleistung zu verringern und einen Allfälliger Allgorythmus zu finden. Das gleiche Programm, ein 1-facher Zoom, dauert nun anstelle von 3 Stunden nurnoch 2 Minuten.
 
 \subsection{Analyse Ergebnisse}
-Bei den Analysen der Quadranten hat sich gezeigt, dass die Quadranten auf Bereichen kein Einfluss geben und auf gewissen Starken. Die Quadranten hatten auf Folgende Bereiche keinen Einfluss im Definitionsbereich:
-\begin{center}
-\subsubsection*{1. Quadrant}
-$\{z \in \mathbb{C}\text{ }|\text{ }\Im(z)>57.4\frac{\Re(z)+2}{11.4}-\frac{29.8}{3.8}\}$
-\subsubsection*{2. Quadrant}
-$\{z \in \mathbb{C}\text{ }|\text{ }((\Re(z)-\frac{3'504}{667})^2+\Im(z)^2>6.25 \text{ }\&\text{ } \Im(z) < -\frac{25}{667}) \lor (\Im(z)>(\Re(z)-1)^2) \}$
-\subsubsection*{3. Quadrant}
-$\{z \in \mathbb{C}\text{ }|\text{ }((\Re(z)-\frac{3'504}{667})^2+\Im(z)^2>6.25 \text{ }\&\text{ } \Im(z) > \frac{25}{667}) \lor (\Im(z)<-(\Re(z)-1)^2) \}$
-\subsubsection*{4. Quadrant}
-$\{z \in \mathbb{C}\text{ }|\text{ }\Im(z)<-57.4\frac{\Re(z)+2}{12}+\frac{24.5}{4}\}$\\
-\end{center}
-Bei den durchgeführten Analysen mit den Radien hat sich gezeigt, dass vom Bereich $\{z \in \mathbb{C}\text{ }|\text{ } |z| >1\text{ } \& \text{ } 1>=\Re(z)>=0 \text{ } \& \text{ }-1<=\Im(z)<=1\}$ nur ein maximaler Treffer von 4 erreicht wird. Somit kann dieser Bereich vernachlässigt werden in der Berechnung, da 4 von in der Norm 69 Maximum sehr wenig ist und vor allem der Beinflusste Bereich nicht wirklich erkenntlich ist beim Anblick des Buddhabrotes.
-
+\begin{figure}[h]
+\begin{tabular}{ll}
+	\centering
+	\subfloat[1. Quadrant]{\scalebox{1}[-1]{\includegraphics[width=.49\textwidth]{Pictures/1AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000withResolution4000x2667.png}}\label{fig:1. Quadrant}}
+	\hfill
+	\subfloat[2. Quadrant]{\scalebox{1}[-1]{\includegraphics[width=.49\textwidth]{Pictures/2AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000withResolution4000x2667.png}}\label{fig:2. Quadrant}}
+	\caption{Die Enstehung der Kochkurve}
+\
+\end{figure}
 \subsection{Implementierungszahlen}
 Durch die gefunde Lösung ist zumal nurnoch einen 6.47-Facher Zoom möglich, dies wird daran liegen das es zwei Variabeln hat, welch ein kleiner einfluss ist, und dass nun grosse Matrixen in einer Liste zu finden sind, welches viel Speicherplatz nimmt. Es ist jedoch ein minimaler Verlust und somit nicht schlimm. Ein 6.47-Facher Zoom zum Punkt -1.5, mit der Auflösung 4'002 auf 2'668 Pixel und mit 1'000 Iteration nurnoch 1 Stunde 2 min 7 Sekunden.

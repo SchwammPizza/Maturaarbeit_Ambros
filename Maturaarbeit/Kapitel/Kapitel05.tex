@@ -1,3 +1,13 @@
 \section{Disskussion}
-Eine Steigerung ist klar ersichtlich, zwar wurde einen Punkt gewählt bei dem es die Variante gelohnt hat, jedoch sind auch die Punkte in dieser Umgebung sehr Spannend. Hätte man einen Anderen Punkt ausgewählt, wäre eine klare Verbesserung nicht ersichlich, wenn den Sogar vorhanden. Ebenfalls ist das Programm minimal nicht gleich effizient, da es nun mehr if-Konditionen hat, welche so das Programm verlangsamen.\\
-Es gibt einiges, dass man probieren hätte gekonnt, welches einen Zoom tiefer gemacht hätte, eines währe eine Datenbank, welches währen dem Rechnen erstellt währe, sodass die Threads bei alten Resultaten hätten weiter Rechnen gekonnt. Das Programm währe zwar wiederum langsamer, da nun mehr auffrufe auserhalb der CUDA geschehen. Eine andere Methode währe den Metropolis-Hashtings Algorithmus von Alexander Boswell nutzen. Dies wurde nicht gemacht, da dort die Warscheinlichkeit, dass ein Punkt divergiert berechnet wurde und so nicht unbedingt alle Punkte miteinbezogen werden. Dies ist durch den Verwerfungsbereich, zwar bei der Lösung dieser Arbeit ebenfalls nicht gegeben, jedoch, war der Maxtreffer von 4 bei verschiedenen grössen der Variabel Iterationen. 
+Bei den Analysen der Quadranten hat sich gezeigt, dass die Quadranten auf Bereichen kein Einfluss geben und auf gewissen Starken. Die Quadranten hatten auf Folgende Bereiche keinen Einfluss im Definitionsbereich:
+\begin{center}
+\subsubsection*{1. Quadrant}
+$\{z \in \mathbb{C}\text{ }|\text{ }\Im(z)>57.4\frac{\Re(z)+2}{11.4}-\frac{29.8}{3.8}\}$
+\subsubsection*{2. Quadrant}
+$\{z \in \mathbb{C}\text{ }|\text{ }((\Re(z)-\frac{3'504}{667})^2+\Im(z)^2>6.25 \text{ }\&\text{ } \Im(z) < -\frac{25}{667}) \lor (\Im(z)>(\Re(z)-1)^2) \}$
+\subsubsection*{3. Quadrant}
+$\{z \in \mathbb{C}\text{ }|\text{ }((\Re(z)-\frac{3'504}{667})^2+\Im(z)^2>6.25 \text{ }\&\text{ } \Im(z) > \frac{25}{667}) \lor (\Im(z)<-(\Re(z)-1)^2) \}$
+\subsubsection*{4. Quadrant}
+$\{z \in \mathbb{C}\text{ }|\text{ }\Im(z)<-57.4\frac{\Re(z)+2}{12}+\frac{24.5}{4}\}$\\
+\end{center}
+Bei den durchgeführten Analysen mit den Radien hat sich gezeigt, dass vom Bereich $\{z \in \mathbb{C}\text{ }|\text{ } |z| >1\text{ } \& \text{ } 1>=\Re(z)>=0 \text{ } \& \text{ }-1<=\Im(z)<=1\}$ nur ein maximaler Treffer von 4 erreicht wird. Somit kann dieser Bereich vernachlässigt werden in der Berechnung, da 4 von in der Norm 69 Maximum sehr wenig ist und vor allem der Beinflusste Bereich nicht wirklich erkenntlich ist beim Anblick des Buddhabrotes.

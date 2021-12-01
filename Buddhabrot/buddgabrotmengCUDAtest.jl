@@ -5,14 +5,11 @@ using Images, Colors, CUDA
     n = Int(2668) # muss eine Gerade Zahl sein
     m = Int(floor(n/2*3))
     
-    iteration = 1000
+    iteration = 100
     anzahlThreads = 256
-    
-    # zoom = 6.25  #zoom != 0
+     
     zoomPoint = -1.25 + 0im
-    # zoomPoint = -0.5 + 0.5im
-    # zoomPoint = -0.5 + 0im
-    zoom = 6.48
+    zoom = 6.48 #zoom != 0
     
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
@@ -181,7 +178,7 @@ using Images, Colors, CUDA
     end
     
     # löschen und neuerstellen von Arrays aufgrund Speicherhändling
-    print("here")
+    println("here")
     mandelbrot = nothing
     img = CUDA.zeros(RGB{Float64}, n, m)
     bench_zeich!(horizontal, vertical, maxValues, img, maximum(maxValues))
