@@ -8,8 +8,8 @@ using Images, Colors, CUDA
     iteration = 100
     anzahlThreads = 256
 
-    zoomPoint = -1.25 + 0im
-    zoom = 6.25
+    zoomPoint = -0.5 + 0im
+    zoom = 1
 
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)

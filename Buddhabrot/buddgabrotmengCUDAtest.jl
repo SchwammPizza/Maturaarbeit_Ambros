@@ -9,7 +9,7 @@ using Images, Colors, CUDA
     anzahlThreads = 256
      
     zoomPoint = -1.25 + 0im
-    zoom = 6.48 #zoom != 0
+    zoom = 6.25 #zoom != 0
     
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
@@ -147,19 +147,15 @@ using Images, Colors, CUDA
     # Kontrolle ob Zoom vereinfachung möglich
     if zoom > 2     
         if (-horizontal2 > (28.7*n)*vertical2/(4*m) - m*9.5/4) #4. Quadrant
-            println(4)
             mandelbrot[1] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
         end
         if ((((vertical2-4340)^2+(horizontal2-n/2)^2>(2.5/3*m)^2) & (horizontal2 < n/2-50)) || (horizontal > 9 * n/(2*m^2)*(vertical-m)^2+n/2)) #3. Quadrant
-            println(3)
             mandelbrot[2] = zeros(Int8, round(Int, n/2*zoom), round(Int, 2*m*zoom/3))
         end
         if ((((vertical2-4340)^2+(horizontal-n/2)^2>(2.5/3*m)^2) & (horizontal > n/2+50)) || (horizontal2 < -9 * n/(2*m^2)*(vertical-m)^2+n/2)) #2. Quadrant
-            println(2)
             mandelbrot[3] = zeros(Int8, round(Int, n/2*zoom), round(Int, 2*m*zoom/3))
         end
         if (horizontal > (28.7*n)*vertical2/(3.8*m) - n*13/3.8) #1. Quadrant
-            println(1)
             mandelbrot[4] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
         end
     else
@@ -178,9 +174,9 @@ using Images, Colors, CUDA
     end
     
     # löschen und neuerstellen von Arrays aufgrund Speicherhändling
-    println("here")
     mandelbrot = nothing
     img = CUDA.zeros(RGB{Float64}, n, m)
+    println("Startet Drawing")
     bench_zeich!(horizontal, vertical, maxValues, img, maximum(maxValues))
     println(maximum(maxValues))
 
