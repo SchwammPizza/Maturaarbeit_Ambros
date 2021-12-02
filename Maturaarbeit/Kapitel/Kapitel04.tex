@@ -1,8 +1,8 @@
 \section{Ergebnisse}
 
 \subsection{Zahlen ohne Optimierung}
-Beim ersten Zoom war ein 16-Facher Zoom nicht mehr möglich, da die Matrix so gross wird, dass es nicht genügend RAM freiräumen kann. Ebenfalls dauert es dann schnell mal viel Zeit, ein 12-facher Zoom, mit der Auflösung 4'001 auf 2'667 Pixel, zum Punk -1.25 und mit 150 Iterationen dauerte etwa 45.6h.\\
-Durch die CUDA optimierung kann man nur noch einen 6.25-fachen Zoom machen, bei gleichen Einstellung, bis auf die Zoomtiefe auf 6.25, konnte das Programm innerhalb von 38 Sekunden Fertig gerechnet sein. Das einen Zoom nicht gleich Tief möglich ist, ist eigentlich egal, denn es geht ja darum, die Rechenleistung zu verringern und einen Allfälliger Allgorythmus zu finden. Das gleiche Programm, ein 1-facher Zoom, dauert nun anstelle von 3 Stunden nurnoch 2 Minuten.
+Beim ersten Zoom ist ein 16-facher Zoom nicht mehr möglich, da die Matrix so gross wird, dass es nicht genügend RAM freiräumen kann. Ebenfalls dauert es dann schnell mal viel Zeit, einen 12-fachen Zoom mit der Auflösung 4'001 auf 2'667 Pixel zu berechnen, zum Punkt -1.25 und mit 150 Iterationen etwa 45.6 Stunden.\\
+Durch die CUDA-Optimierung kann man nur noch einen 6.25-fachen Zoom machen, dies liegt daran das die GPU nur noch 8GB VRAM hat und der PC 16GB RAM. Bei gleicher Einstellung, bis auf die Zoomtiefe auf 6.25 konnte das Programm innerhalb von 38 Sekunden fertig rechnen. Dass ein Zoom nicht gleich tief möglich ist, ist eigentlich egal, denn es geht ja darum, die Rechenleistung zu verringern und einen allfälligen Algorithmus zu finden. Das gleiche Programm, ein 1-facher Zoom, dauert nun anstelle von 3 Stunden nur noch 2 Minuten.
 
 \subsection{Analyse Ergebnisse}
 \begin{figure}[!h]
@@ -24,7 +24,7 @@ Durch die CUDA optimierung kann man nur noch einen 6.25-fachen Zoom machen, bei 
 	\caption{Das Buddhabrot für $\{z \in \mathbb{C}| |z|>1\}$ in den Quadranten 1 \& 4}
 	\label{fig:absolute}
 \end{figure}
-Bei Abbildung \ref{fig:absolute} ist der Maximal erreichte Treffer auf einem Pixel 4.
+Bei Abbildung \ref{fig:absolute} ist der maximal erreichte Treffer auf einem Pixel vier.
 
 \subsection{Implementierungszahlen}
-Durch die gefunde Lösung ist zumal nurnoch einen 6.48-Facher Zoom möglich, dies wird daran liegen das es zwei Variabeln hat, welch ein kleiner einfluss ist, und dass nun grosse Matrixen in einer Liste zu finden sind, welches viel Speicherplatz nimmt. Es ist jedoch ein minimaler Verlust und somit nicht schlimm. Ein 6.48-Facher Zoom zum Punkt -1.25, mit der Auflösung 4'002 auf 2'668 Pixel und mit 100 Iteration dauert es nur noch 2 Minuten und 10 Sekunden. Bei einem 6.25-fachem Zoom braucht es 2 Minuten 1 Sekunde.
+Durch die gefundene Lösung ist ein 6.48-facher Zoom möglich, jedoch braucht ein gleicher Zoom mehr Zeit. Dies liegt daran, dass nun grosse Matrixen in einer Liste zu finden sind und so der Aufruf durch mehrere if-Kondition länger dauert. Es ist jedoch ein minimaler Verlust und somit nicht schlimm. Ein 6.48-facher Zoom zum Punkt -1.25, mit der Auflösung 4'002 auf 2'668 Pixel und mit 100 Iteration dauert es nur noch 2 Minuten und 10 Sekunden. Bei einem 6.25-fachem Zoom braucht es 2 Minuten 1 Sekunde.
