@@ -5,10 +5,10 @@ using Images, Colors, CUDA
     n = Int(2668) # muss eine Gerade Zahl sein
     m = Int(floor(n/2*3))
     
-    iteration = 100
+    iteration = 1000
     anzahlThreads = 256
      
-    zoomPoint = -1.25 + 0im
+    zoomPoint = -.5 + .5im
     zoom = 6.25 #zoom != 0
     
     #Berechnete variabeln

@@ -3,7 +3,6 @@
 \subsection{Zahlen ohne Optimierung}
 Beim ersten Zoom ist ein 16-facher Zoom nicht mehr möglich, da die Matrix so gross wird, dass es nicht genügend RAM freiräumen kann. Ebenfalls dauert es dann schnell mal viel Zeit, einen 12-fachen Zoom mit der Auflösung 4'001 auf 2'667 Pixel zu berechnen, zum Punkt -1.25 und mit 150 Iterationen etwa 45.6 Stunden.\\
 Durch die CUDA-Optimierung kann man nur noch einen 6.25-fachen Zoom machen, dies liegt daran das die GPU nur noch 8GB VRAM hat und der PC 16GB RAM. Bei gleicher Einstellung, bis auf die Zoomtiefe auf 6.25 konnte das Programm innerhalb von 38 Sekunden fertig rechnen. Dass ein Zoom nicht gleich tief möglich ist, ist eigentlich egal, denn es geht ja darum, die Rechenleistung zu verringern und einen allfälligen Algorithmus zu finden. Das gleiche Programm, ein 1-facher Zoom, dauert nun anstelle von 3 Stunden nur noch 2 Minuten.
-
 \subsection{Analyse Ergebnisse}
 \begin{figure}[!h]
 	\centering
