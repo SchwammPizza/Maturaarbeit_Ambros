@@ -1,29 +1,32 @@
+# Dies ist die letzte und somit Optimierte Fassung der Arbeit
+
 using Images, Colors, CUDA
 
 @time begin
     #Varierende variabeln
-    n = Int(2668) # muss eine Gerade Zahl sein
-    m = Int(floor(n/2*3))
+    const n = Int(2668) # muss eine Gerade Zahl sein
+    const m = Int(floor(n/2*3))
     
-    iteration = 1000
-    anzahlThreads = 256
+    const iteration = 150
+    const anzahlThreads = 256
      
-    zoomPoint = -.5 + .5im
-    zoom = 6.25 #zoom != 0
+    const zoomPoint = -1.25 + 0im
+    const zoom = 6.25 #zoom != 0
     
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
     
     # verschiebung des Bildes im gesamt array
-    horizontal = floor(Int, zoomPointAsMatrixPoint[1] - n/2)        # zuerst die auf der Komplexe-ebene rechtere
-    horizontal2 = floor(Int, zoomPointAsMatrixPoint[1] + n/2)
-    vertical = floor(Int, zoomPointAsMatrixPoint[2] - m/2)      # zuerst die auf der Komplexe-ebene höchere
-    vertical2 = floor(Int, zoomPointAsMatrixPoint[2] + m/2)
+    const horizontal = floor(Int, zoomPointAsMatrixPoint[1] - n/2)        # zuerst die auf der Komplexenebene rechtere
+    const horizontal2 = floor(Int, zoomPointAsMatrixPoint[1] + n/2)
+    const vertical = floor(Int, zoomPointAsMatrixPoint[2] - m/2)      # zuerst die auf der Komplexenebene hoechere
+    const vertical2 = floor(Int, zoomPointAsMatrixPoint[2] + m/2)
     zoomPointAsMatrixPoint = nothing
     
     # erstellen der Funktionen
 
-    function mandelbrotberechnung!(nn::Int64, mm::Int64, iteration::Int64, mandelbrotPart, f::CuDeviceVector{ComplexF64, 1}, r::Int8) #bearbeitet das mandelbrot array so das nunroch 1 und 0 gibt, 1 für drausen und 0 für in der Menge
+    # bearbeitet das mandelbrot array so das nunroch 1 und 0 gibt, 1 fuer drausen und 0 fuer in der Menge
+    function mandelbrotberechnung!(nn::Int64, mm::Int64, iteration::Int64, mandelbrotPart, f::CuDeviceVector{ComplexF64, 1}, r::Int8) 
         indexX = (blockIdx().x - 1) * blockDim().x + threadIdx().x
         strideX = blockDim().x * gridDim().x
         indexY = (blockIdx().y - 1) * blockDim().y + threadIdx().y
@@ -31,7 +34,7 @@ using Images, Colors, CUDA
 
         for i = indexX:strideX:nn
             for j = indexY:strideY:mm
-                y = floor((r-1)/2)*-1 + i/nn #im # definitionbereich = [-1im, 1im]
+                y = floor((r-1)/2)*-1 + i/nn # definitionbereich = [-1im, 1im]
                 x = 2*abs(r-2.5)-3 + 2*j/mm  # definitionbereich = [-2, 1]
                 z = x + y*1im
                 if !((abs(z) > 1) & (x >= 0))
@@ -66,8 +69,9 @@ using Images, Colors, CUDA
             @cuda threads=anzahlThreads blocks=numblocks mandelbrotberechnung!(nn, mm, iteration, mandelbrotPart, f, r)
         end
     end
-    
-    function berechnungBuddhaBrot!(nzoom::Int64, mzoom::Int64, nn::Int64, mm::Int64, iteration::Int64, maxValues, mandelbrot, f::CuDeviceVector{ComplexF64, 1}, r::Int8) #schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
+
+    # schaut was die Maximale Iterationzahl war, und speichert in maxValues wie oft dort ein Punkt ankam
+    function berechnungBuddhaBrot!(nzoom::Int64, mzoom::Int64, nn::Int64, mm::Int64, iteration::Int64, maxValues, mandelbrot, f::CuDeviceVector{ComplexF64, 1}, r::Int8) 
         indexY = (blockIdx().x - 1) * blockDim().x + threadIdx().x
         strideY = blockDim().x * gridDim().x
         indexX = (blockIdx().y - 1) * blockDim().y + threadIdx().y
@@ -144,7 +148,7 @@ using Images, Colors, CUDA
     mandelbrot = CUDA.Array([CUDA.ones(Int8,2, 2) for _ in 1:4])
     maxValues = CUDA.zeros(Int128, floor(Int, n*zoom), floor(Int, m*zoom))
 
-    # Kontrolle ob Zoom vereinfachung möglich
+    # Kontrolle ob Zoom vereinfachung moeglich
     if zoom > 2     
         if (-horizontal2 > (28.7*n)*vertical2/(4*m) - m*9.5/4) #4. Quadrant
             mandelbrot[1] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
@@ -173,7 +177,7 @@ using Images, Colors, CUDA
         end
     end
     
-    # löschen und neuerstellen von Arrays aufgrund Speicherhändling
+    # loeschen und neuerstellen von Arrays aufgrund Speicher-Handling
     mandelbrot = nothing
     img = CUDA.zeros(RGB{Float64}, n, m)
     println("Startet Drawing")
