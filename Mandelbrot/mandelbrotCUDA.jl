@@ -24,7 +24,9 @@ using CUDA, Images, Colors
                 c = x + y*1im
      
                 for q = 1:iteration
-                    if (z in f )||(abs(z) >= 2)
+                    if (z in f )
+                        break
+                    elseif (abs(z) >= 2)
                         r = iteration/6
 
                         if q < 0
@@ -33,28 +35,28 @@ using CUDA, Images, Colors
                             q -= iteration
                         end
         
-                        if i < r
-                            l = RGB{Float64}(1, 0, i/r)
-                        elseif  i == r
+                        if q < r
+                            l = RGB{Float64}(1, 0, q/r)
+                        elseif  q == r
                             l = RGB{Float64}(1, 0, 1)
-                        elseif i < 2*r
-                            l = RGB{Float64}(1 - (i - r)/r, 0, 1)
+                        elseif q < 2*r
+                            l = RGB{Float64}(1 - (q - r)/r, 0, 1)
                         elseif  i == 2*r
                             l = RGB{Float64}(0, 0, 1)
-                        elseif i < 3*r
-                            l = RGB{Float64}(0, (i - 2*r)/r, 1)
-                        elseif i == 3*r
+                        elseif q < 3*r
+                            l = RGB{Float64}(0, (q - 2*r)/r, 1)
+                        elseif q == 3*r
                             l = RGB{Float64}(0, 1, 1)
-                        elseif i < 4*r
-                            l = RGB{Float64}(0, 1, 1 - (i - 3*r)/r)
-                        elseif i == 4*r
+                        elseif q < 4*r
+                            l = RGB{Float64}(0, 1, 1 - (q - 3*r)/r)
+                        elseif q == 4*r
                             l = RGB{Float64}(0, 1, 0)
-                        elseif i < 5*r
+                        elseif q < 5*r
                             l = RGB{Float64}((i - 4*r)/r, 1, 0)
-                        elseif i == 5*r
-                            l = RGB{Float64}(1, 1, 0)
+                        elseif q == 5*r
+                            l = RGB{Float64}(q, 1, 0)
                         elseif i < iteration
-                            l = RGB{Float64}(1, (i - 5*r)/r, 0)
+                            l = RGB{Float64}(1, (q - 5*r)/r, 0)
                         else
                             l = RGB{Float64}(1, 0, 0)
                         end
