@@ -4,23 +4,23 @@ using Images, Colors, CUDA
 
 @time begin
     #Varierende variabeln
-    n = Int(2668) # muss eine Gerade Zahl sein
-    m = Int(floor(n/2*3))
+    const n = Int(2668) # muss eine Gerade Zahl sein
+    const m = Int(floor(n/2*3))
     
-    iteration = 1000
-    anzahlThreads = 256
+    const iteration = 150
+    const anzahlThreads = 256
      
-    zoomPoint = -.5 + .5im
-    zoom = 6.25 #zoom != 0
+    const zoomPoint = -1.25 + 0im
+    const zoom = 6.25 #zoom != 0
     
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
     
     # verschiebung des Bildes im gesamt array
-    horizontal = floor(Int, zoomPointAsMatrixPoint[1] - n/2)        # zuerst die auf der Komplexenebene rechtere
-    horizontal2 = floor(Int, zoomPointAsMatrixPoint[1] + n/2)
-    vertical = floor(Int, zoomPointAsMatrixPoint[2] - m/2)      # zuerst die auf der Komplexenebene hoechere
-    vertical2 = floor(Int, zoomPointAsMatrixPoint[2] + m/2)
+    const horizontal = floor(Int, zoomPointAsMatrixPoint[1] - n/2)        # zuerst die auf der Komplexenebene rechtere
+    const horizontal2 = floor(Int, zoomPointAsMatrixPoint[1] + n/2)
+    const vertical = floor(Int, zoomPointAsMatrixPoint[2] - m/2)      # zuerst die auf der Komplexenebene hoechere
+    const vertical2 = floor(Int, zoomPointAsMatrixPoint[2] + m/2)
     zoomPointAsMatrixPoint = nothing
     
     # erstellen der Funktionen

@@ -5,24 +5,21 @@ using Images, Colors
 # variabeln deffinieren
 @time begin
     #Varierende variabeln
-    println(@__FILE__)
-    n = Int(2667)
-    n = Int(360)
-    m = Int(floor(n/720*1080))
-    m = 640
+    const n = Int(2668)
+    const m = Int(floor(n/2*3))
 
-    iteration = 1000
+    const iteration = 1000
 
-    zoom = 1 #zoom != 0
-    zoomPoint = -0.5 + 0im
+    const zoom = 12 #zoom != 0
+    const zoomPoint = -1.25 + 0im
 
     #Berechnete variabeln
-    zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
+    const zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
     println(zoomPointAsMatrixPoint)
 
     # verschiebung des Bildes im gesamt array
-    horizontal = Int(floor(zoomPointAsMatrixPoint[1] - n/2))        # zuerst die auf der Komplexenebene rechtere
-    vertical = Int(floor(zoomPointAsMatrixPoint[2] - m/2))      # zuerst die auf der Komplexenebene hoechere
+    const horizontal = Int(floor(zoomPointAsMatrixPoint[1] - n/2))        # zuerst die auf der Komplexenebene rechtere
+    const vertical = Int(floor(zoomPointAsMatrixPoint[2] - m/2))      # zuerst die auf der Komplexenebene hoechere
     println(string(horizontal) * " " * string(vertical))
     maxLanding = 0
 

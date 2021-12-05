@@ -11,7 +11,7 @@ using Images, Colors, CUDA
     const anzahlThreads = 256
      
     const zoomPoint = -1.25 + 0im
-    const zoom = 6.25 #zoom != 0
+    const zoom = 6.48 #zoom != 0
     
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)

@@ -1,12 +1,12 @@
 using Images, Colors
 
 @time begin
-    n = Int(720*35.9/359)
+    n = Int(2668)
     m = Int(n/720*1080)
 
     img = zeros(RGB{Float64}, n, m)
 
-    function farbkreis(i, max_iteration=100)
+    function farbkreis(i, max_iteration)
         r = max_iteration/6
 
         if i < 0
@@ -42,7 +42,7 @@ using Images, Colors
         end
     end
 
-    function mandelbrotmenge(farbe = true)
+    function mandelbrotmenge()
         for i = 1:n
             for j = 1:m
                 y = (2*i - n)/n * 1im # definitionbereich = [-1im, 1im]
@@ -54,11 +54,7 @@ using Images, Colors
                     if z in f
                         break
                     elseif abs(z) > 2
-                        if farbe
-                            img[i, j] = farbkreis(l, iteration)
-                        else
-                            img[i, j] = 1
-                        end
+                        img[i, j] = farbkreis(l, iteration)
                         break
                     end
                     append!(f, z)
@@ -68,7 +64,7 @@ using Images, Colors
         end
     end
 
-    iteration = 200
+    iteration = 1000
 
     mandelbrotmenge()
     

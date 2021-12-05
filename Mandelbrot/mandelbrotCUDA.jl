@@ -6,7 +6,7 @@ using CUDA, Images, Colors
 
     anzahlThreads = 256
 
-    iteration = 10000
+    iteration = 150
 
     mandelbrot = CUDA.zeros(RGB{Float64}, n, m)
 
@@ -24,17 +24,15 @@ using CUDA, Images, Colors
                 c = x + y*1im
      
                 for q = 1:iteration
-                    if (z in f )
+                    if (z in f)
                         break
                     elseif (abs(z) >= 2)
                         r = iteration/6
 
-                        if q < 0
-                            q += iteration
-                        elseif q > iteration
-                            q -= iteration
+                        if r == 0
+                            @cuprintln(r)
                         end
-        
+            
                         if q < r
                             l = RGB{Float64}(1, 0, q/r)
                         elseif  q == r
@@ -52,7 +50,7 @@ using CUDA, Images, Colors
                         elseif q == 4*r
                             l = RGB{Float64}(0, 1, 0)
                         elseif q < 5*r
-                            l = RGB{Float64}((i - 4*r)/r, 1, 0)
+                            l = RGB{Float64}((q - 4*r)/r, 1, 0)
                         elseif q == 5*r
                             l = RGB{Float64}(q, 1, 0)
                         elseif i < iteration
@@ -90,7 +88,5 @@ using CUDA, Images, Colors
 
     img = zeros(RGB{Float64}, n, m)
     img .= mandelbrot
-
-    save(string(@__DIR__)*"/Pictures/mandelbrot$(n)x$m.png", img)
-
+    save(string(@__DIR__)*"/Pictures/Manddddddelbrot$(n)x$m.png", img)
 end

@@ -4,22 +4,22 @@ using Images, Colors, CUDA
 
 @time begin
     #Varierende variabeln
-    n = Int(2668)
-    m = Int(floor(n/2*3))
+    const n = Int(2668)
+    const m = Int(floor(n/2*3))
 
-    iteration = 100
-    anzahlThreads = 256
+    const iteration = 150
+    const anzahlThreads = 256
 
-    zoomPoint = -0.5 + 0im
-    zoom = 1
+    const zoomPoint = -1.25 + 0im
+    const zoom = 6.25
 
     #Berechnete variabeln
-    zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
+    const zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
     println(zoomPointAsMatrixPoint)
 
     # verschiebung des Bildes im gesamt array
-    horizontal = Int(floor(zoomPointAsMatrixPoint[1] - n/2))        # zuerst die auf der Komplexenebene rechtere
-    vertical = Int(floor(zoomPointAsMatrixPoint[2] - m/2))      # zuerst die auf der Komplexenebene hoechere
+    const horizontal = Int(floor(zoomPointAsMatrixPoint[1] - n/2))        # zuerst die auf der Komplexenebene rechtere
+    const vertical = Int(floor(zoomPointAsMatrixPoint[2] - m/2))      # zuerst die auf der Komplexenebene hoechere
     println(string(horizontal) * " " * string(vertical))
 
     # erstellen der array
@@ -106,7 +106,7 @@ using Images, Colors, CUDA
     function bench_buddhi!(nzoom::Int64, mzoom::Int64, n::Int64, m::Int64, iteration::Int64, maxValues, mandelbrot)
         f = CUDA.zeros(ComplexF64, iteration)
         f .= 3
-        numblocks = ceil(Int, length(maxValues)/anzahlThreads)
+        numblocks = ceil(Int, length(mandelbrot)/anzahlThreads)
         CUDA.@sync begin
             @cuda threads=anzahlThreads blocks=numblocks berechnungBuddhaBrot!(nzoom, mzoom, n, m, iteration, maxValues, mandelbrot, f)
         end
