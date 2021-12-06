@@ -1,34 +1,5 @@
 \section{Anhang}
 
-\subsubsection*{Zoompunkt=-1.25, Zoom=12, Iteration=150, Zoomversion 1}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.5\textwidth]{Pictures/Anhang/BuddhabrotmengeWithZoom12ToPoint-1.25 + 0.0imWithIteration150withResolution4000x2667.png}
-    \label{fig:Version1}
-\end{figure}
-\bigskip
-\subsubsection*{Zoompunkt=-1.25, Zoom=6.25, Iteration=150, Zoomversion 2}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.5\textwidth]{Pictures/Anhang/BuddhabrotmengeWithZoomGPU6.25ToPoint-1.25 + 0.0imWithIteration150withResolution4002x2668high.png}
-    \label{fig:Version2}
-\end{figure}
-\bigskip
-\subsubsection*{Zoompunkt=-1.25, Zoom=6.25, Iteration=150, Zoomversion 3}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.5\textwidth]{Pictures/Anhang/AnalyBuddhabrotmengeWithZoomGPU6.25ToPoint-1.25 + 0.0imWithIteration150withResolution4002x2668.png}
-    \label{fig:Version3}
-\end{figure}
-\bigskip
-\subsubsection*{Zoompunkt=-1.25, Zoom=6.48, Iteration=150, Zoomversion 3}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.5\textwidth]{Pictures/Anhang/AnalyBuddhabrotmengeWithZoomGPU6.48ToPoint-1.25 + 0.0imWithIteration150withResolution4002x2668.png}
-    \label{fig:Version3}
-\end{figure}
-\bigskip
-
 \subsubsection*{1. Fassung des Programmes}
 \juliacode{Programs/buddhabrotMitZoom.jl}
 \bigskip
@@ -37,3 +8,30 @@
 \bigskip
 \subsubsection*{Endfassung des Programmes, mit CUDA und eigen Optimierung}
 \juliacode{Programs/buddhabrotCUDAOptimized.jl}
+
+\subsubsection*{Bilder auf die sich der Text Bezieht}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.5\textwidth]{Pictures/Anhang/BuddhabrotmengeWithZoom12ToPoint-1.25 + 0.0imWithIteration150withResolution4000x2667.png}
+     \label{fig:Version1}
+     \caption[Erstes Bild im Anhang (eigenes Bild)]{Zoompunkt=-1.25, Zoom=12, Iteration=150, Zoomversion 1}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.5\textwidth]{Pictures/Anhang/BuddhabrotmengeWithZoomGPU6.25ToPoint-1.25 + 0.0imWithIteration150withResolution4002x2668high.png}
+    \label{fig:Version2}
+   \caption[Zeites Bild im Anhang (eigenes Bild)]{Zoompunkt=-1.25, Zoom=6.25, Iteration=150, Zoomversion 2}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.5\textwidth]{Pictures/Anhang/AnalyBuddhabrotmengeWithZoomGPU6.25ToPoint-1.25 + 0.0imWithIteration150withResolution4002x2668.png}
+    \label{fig:Version3}
+   \caption[Drittes Bild im Anhang (eigenes Bild)]{Zoompunkt=-1.25, Zoom=6.25, Iteration=150, Zoomversion 3}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.5\textwidth]{Pictures/Anhang/AnalyBuddhabrotmengeWithZoomGPU6.48ToPoint-1.25 + 0.0imWithIteration150withResolution4002x2668.png}
+    \label{fig:Version4}
+    \caption[Viertes Bild im Anhang (eigenes Bild)]{Zoompunkt=-1.25, Zoom=6.48, Iteration=150, Zoomversion 3}
+\end{figure}
+

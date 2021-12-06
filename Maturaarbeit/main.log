@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.1)  2 DEC 2021 00:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.1)  6 DEC 2021 07:24
 entering extended mode
 **"C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarb
 eit_Ambros/Maturaarbeit/main.tex"
@@ -219,10 +219,6 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 \Gin@req@height=\dimen163
 \Gin@req@width=\dimen164
 )
-("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/caption\subc
-aption.sty"
-Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
-
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/caption\capt
 ion.sty"
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
@@ -242,8 +238,20 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count274
 \c@continuedfloat=\count275
 )
-\c@subfigure=\count276
-\c@subtable=\count277
+("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/float\float.
+sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count276
+\float@exts=\toks21
+\float@box=\box57
+\@float@everytoks=\toks22
+\@floatcapt=\box58
+)
+("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/caption\subc
+aption.sty"
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+\c@subfigure=\count277
+\c@subtable=\count278
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/latex-tools\
 tabularx.sty"
@@ -253,18 +261,18 @@ Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 \TX@old@col=\dimen174
 \TX@target=\dimen175
 \TX@delta=\dimen176
-\TX@cols=\count278
-\TX@ftn=\toks21
+\TX@cols=\count279
+\TX@ftn=\toks23
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enu
 mitem.sty"
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip55
 \enit@outerparindent=\dimen177
-\enit@toks=\toks22
-\enit@inbox=\box57
-\enit@count@id=\count279
-\enitdp@description=\count280
+\enit@toks=\toks24
+\enit@inbox=\box59
+\enit@count@id=\count280
+\enitdp@description=\count281
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolo
 r.sty"
@@ -297,7 +305,7 @@ er\pgf.sty"
 s\pgfrcs.sty"
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilit
 ies\pgfutil-common.tex"
-\pgfutil@everybye=\toks23
+\pgfutil@everybye=\toks25
 \pgfutil@tempdima=\dimen178
 \pgfutil@tempdimb=\dimen179
 
@@ -305,7 +313,7 @@ ies\pgfutil-common.tex"
 ies\pgfutil-common-lists.tex"))
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilit
 ies\pgfutil-latex.def"
-\pgfutil@abb=\box58
+\pgfutil@abb=\box60
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilit
 ies\pgfrcs.code.tex"
@@ -325,12 +333,12 @@ Package: pgfsys 2020/12/27 v3.1.8b (3.1.8b)
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilit
 ies\pgfkeys.code.tex"
-\pgfkeys@pathtoks=\toks24
-\pgfkeys@temptoks=\toks25
+\pgfkeys@pathtoks=\toks26
+\pgfkeys@temptoks=\toks27
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilit
 ies\pgfkeysfiltered.code.tex"
-\pgfkeys@tmptoks=\toks26
+\pgfkeys@tmptoks=\toks28
 ))
 \pgf@x=\dimen180
 \pgf@y=\dimen181
@@ -344,14 +352,14 @@ ies\pgfkeysfiltered.code.tex"
 \pgf@yd=\dimen189
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count281
-\c@pgf@countb=\count282
-\c@pgf@countc=\count283
-\c@pgf@countd=\count284
-\t@pgf@toka=\toks27
-\t@pgf@tokb=\toks28
-\t@pgf@tokc=\toks29
-\pgf@sys@id@count=\count285
+\c@pgf@counta=\count282
+\c@pgf@countb=\count283
+\c@pgf@countc=\count284
+\c@pgf@countd=\count285
+\t@pgf@toka=\toks29
+\t@pgf@tokb=\toks30
+\t@pgf@tokc=\toks31
+\pgf@sys@id@count=\count286
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/system
 layer\pgf.cfg"
@@ -370,8 +378,8 @@ File: pgfsys-common-pdf.def 2020/12/27 v3.1.8b (3.1.8b)
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/system
 layer\pgfsyssoftpath.code.tex"
 File: pgfsyssoftpath.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfsyssoftpath@smallbuffer@items=\count286
-\pgfsyssoftpath@bigbuffer@items=\count287
+\pgfsyssoftpath@smallbuffer@items=\count287
+\pgfsyssoftpath@bigbuffer@items=\count288
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/system
 layer\pgfsysprotocol.code.tex"
@@ -390,11 +398,11 @@ gfmathutil.code.tex")
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\p
 gfmathparser.code.tex"
 \pgfmath@dimen=\dimen190
-\pgfmath@count=\count288
-\pgfmath@box=\box59
-\pgfmath@toks=\toks30
-\pgfmath@stack@operand=\toks31
-\pgfmath@stack@operation=\toks32
+\pgfmath@count=\count289
+\pgfmath@box=\box61
+\pgfmath@toks=\toks32
+\pgfmath@stack@operand=\toks33
+\pgfmath@stack@operation=\toks34
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\p
 gfmathfunctions.code.tex"
@@ -416,7 +424,7 @@ gfmathfunctions.misc.code.tex")
 gfmathfunctions.integerarithmetics.code.tex")))
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\p
 gfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count289
+\c@pgfmathroundto@lastzeros=\count290
 ))
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\p
 gfint.code.tex")
@@ -453,10 +461,10 @@ File: pgfcorepathusage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basicl
 ayer\pgfcorescopes.code.tex"
 File: pgfcorescopes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfpic=\box60
-\pgf@hbox=\box61
-\pgf@layerbox@main=\box62
-\pgf@picture@serial@count=\count290
+\pgfpic=\box62
+\pgf@hbox=\box63
+\pgf@layerbox@main=\box64
+\pgf@picture@serial@count=\count291
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basicl
 ayer\pgfcoregraphicstate.code.tex"
@@ -491,8 +499,8 @@ File: pgfcorearrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 ayer\pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 \pgf@max=\dimen270
-\pgf@sys@shading@range@num=\count291
-\pgf@shadingcount=\count292
+\pgf@sys@shading@range@num=\count292
+\pgf@shadingcount=\count293
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basicl
 ayer\pgfcoreimage.code.tex"
@@ -501,7 +509,7 @@ File: pgfcoreimage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basicl
 ayer\pgfcoreexternal.code.tex"
 File: pgfcoreexternal.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfexternal@startupbox=\box63
+\pgfexternal@startupbox=\box65
 ))
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basicl
 ayer\pgfcorelayers.code.tex"
@@ -522,7 +530,7 @@ File: pgfcorerdf.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/module
 s\pgfmoduleshapes.code.tex"
 File: pgfmoduleshapes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfnodeparttextbox=\box64
+\pgfnodeparttextbox=\box66
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/module
 s\pgfmoduleplot.code.tex"
@@ -556,8 +564,8 @@ Package: pgffor 2020/12/27 v3.1.8b (3.1.8b)
 gfmath.code.tex")
 \pgffor@iter=\dimen273
 \pgffor@skip=\dimen274
-\pgffor@stack=\toks33
-\pgffor@toks=\toks34
+\pgffor@stack=\toks35
+\pgffor@toks=\toks36
 ))
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/fronte
 ndlayer/tikz\tikz.code.tex"
@@ -566,7 +574,7 @@ Package: tikz 2020/12/27 v3.1.8b (3.1.8b)
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librar
 ies\pgflibraryplothandlers.code.tex"
 File: pgflibraryplothandlers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgf@plot@mark@count=\count293
+\pgf@plot@mark@count=\count294
 \pgfplotmarksize=\dimen275
 )
 \tikz@lastx=\dimen276
@@ -577,23 +585,23 @@ File: pgflibraryplothandlers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 \tikz@lastmovetoy=\dimen281
 \tikzleveldistance=\dimen282
 \tikzsiblingdistance=\dimen283
-\tikz@figbox=\box65
-\tikz@figbox@bg=\box66
-\tikz@tempbox=\box67
-\tikz@tempbox@bg=\box68
-\tikztreelevel=\count294
-\tikznumberofchildren=\count295
-\tikznumberofcurrentchild=\count296
-\tikz@fig@count=\count297
+\tikz@figbox=\box67
+\tikz@figbox@bg=\box68
+\tikz@tempbox=\box69
+\tikz@tempbox@bg=\box70
+\tikztreelevel=\count295
+\tikznumberofchildren=\count296
+\tikznumberofcurrentchild=\count297
+\tikz@fig@count=\count298
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/module
 s\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2020/12/27 v3.1.8b (3.1.8b)
-\pgfmatrixcurrentrow=\count298
-\pgfmatrixcurrentcolumn=\count299
-\pgf@matrix@numberofcolumns=\count300
+\pgfmatrixcurrentrow=\count299
+\pgfmatrixcurrentcolumn=\count300
+\pgf@matrix@numberofcolumns=\count301
 )
-\tikz@expandcount=\count301
+\tikz@expandcount=\count302
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/fronte
 ndlayer/tikz/libraries\tikzlibrarytopaths.code.tex"
@@ -609,12 +617,12 @@ Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
 gfplots.code.tex"
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\p
 gfplotscore.code.tex"
-\t@pgfplots@toka=\toks35
-\t@pgfplots@tokb=\toks36
-\t@pgfplots@tokc=\toks37
+\t@pgfplots@toka=\toks37
+\t@pgfplots@tokb=\toks38
+\t@pgfplots@tokc=\toks39
 \pgfplots@tmpa=\dimen284
-\c@pgfplots@coordindex=\count302
-\c@pgfplots@scanlineindex=\count303
+\c@pgfplots@coordindex=\count303
+\c@pgfplots@scanlineindex=\count304
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/s
 ys\pgfplotssysgeneric.code.tex"))
@@ -632,14 +640,14 @@ iststructure\pgfplotsliststructure.code.tex")
 iststructure\pgfplotsliststructureext.code.tex")
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/l
 iststructure\pgfplotsarray.code.tex"
-\c@pgfplotsarray@tmp=\count304
+\c@pgfplotsarray@tmp=\count305
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/l
 iststructure\pgfplotsmatrix.code.tex")
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/n
 umtable\pgfplotstableshared.code.tex"
-\c@pgfplotstable@counta=\count305
-\t@pgfplotstable@a=\toks38
+\c@pgfplotstable@counta=\count306
+\t@pgfplotstable@a=\toks40
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/l
 iststructure\pgfplotsdeque.code.tex")
@@ -651,7 +659,7 @@ til\pgfplotsbinary.data.code.tex"))
 til\pgfplotsutil.verb.code.tex")
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/l
 ibs\pgflibrarypgfplots.surfshading.code.tex"
-\c@pgfplotslibrarysurf@no=\count306
+\c@pgfplotslibrarysurf@no=\count307
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/s
 ys\pgflibrarypgfplots.surfshading.pgfsys-pdftex.def")))
@@ -688,11 +696,11 @@ s\pgfmoduledecorations.code.tex"
 \pgfdecoratedinputsegmentcompleteddistance=\dimen287
 \pgfdecoratedinputsegmentremainingdistance=\dimen288
 \pgf@decorate@distancetomove=\dimen289
-\pgf@decorate@repeatstate=\count307
+\pgf@decorate@repeatstate=\count308
 \pgfdecorationsegmentamplitude=\dimen290
 \pgfdecorationsegmentlength=\dimen291
 )
-\tikz@lib@dec@box=\box69
+\tikz@lib@dec@box=\box71
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/fronte
 ndlayer/tikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex"
@@ -702,7 +710,7 @@ ies/decorations\pgflibrarydecorations.pathmorphing.code.tex"))
 ndlayer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex"
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/generic/pgf/librar
 ies/decorations\pgflibrarydecorations.pathreplacing.code.tex"))
-\pgfplots@numplots=\count308
+\pgfplots@numplots=\count309
 \pgfplots@xmin@reg=\dimen292
 \pgfplots@xmax@reg=\dimen293
 \pgfplots@ymin@reg=\dimen294
@@ -784,8 +792,8 @@ options.sty"
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen298
-\Hy@linkcounter=\count309
-\Hy@pagecounter=\count310
+\Hy@linkcounter=\count310
+\Hy@pagecounter=\count311
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1
 enc.def"
@@ -801,7 +809,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 texcmds.sty"
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count311
+\Hy@SavedSpaceFactor=\count312
 Package hyperref Info: Hyper figures OFF on input line 4464.
 Package hyperref Info: Link nesting OFF on input line 4469.
 Package hyperref Info: Hyper index ON on input line 4472.
@@ -809,7 +817,7 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count312
+\c@Hy@tempcnt=\count313
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty"
 \Urlmuskip=\muskip16
@@ -827,7 +835,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count313
+\Fld@menulength=\count314
 \Field@Width=\dimen300
 \Fld@charsize=\dimen301
 Package hyperref Info: Hyper figures OFF on input line 6347.
@@ -846,9 +854,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count314
-\c@Item=\count315
-\c@Hfootnote=\count316
+\Hy@abspage=\count315
+\c@Item=\count316
+\c@Hfootnote=\count317
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -862,8 +870,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count317
-\c@bookmark@seq@number=\count318
+\Fld@listcount=\count318
+\c@bookmark@seq@number=\count319
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/rerunfileche
 ck\rerunfilecheck.sty"
@@ -898,56 +906,56 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 pn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count319
+\inf@bad=\count320
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count320
-\leftroot@=\count321
+\uproot@=\count321
+\leftroot@=\count322
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count322
-\DOTSCASE@=\count323
+\classnum@=\count323
+\DOTSCASE@=\count324
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box70
-\strutbox@=\box71
+\Mathstrutbox@=\box72
+\strutbox@=\box73
 \big@size=\dimen303
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count324
-\c@MaxMatrixCols=\count325
+\macc@depth=\count325
+\c@MaxMatrixCols=\count326
 \dotsspace@=\muskip17
-\c@parentequation=\count326
-\dspbrk@lvl=\count327
-\tag@help=\toks39
-\row@=\count328
-\column@=\count329
-\maxfields@=\count330
-\andhelp@=\toks40
+\c@parentequation=\count327
+\dspbrk@lvl=\count328
+\tag@help=\toks41
+\row@=\count329
+\column@=\count330
+\maxfields@=\count331
+\andhelp@=\toks42
 \eqnshift@=\dimen304
 \alignsep@=\dimen305
 \tagshift@=\dimen306
 \tagwidth@=\dimen307
 \totwidth@=\dimen308
 \lineht@=\dimen309
-\@envbody=\toks41
+\@envbody=\toks43
 \multlinegap=\skip58
 \multlinetaggap=\skip59
-\mathdisplay@stack=\toks42
+\mathdisplay@stack=\toks44
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsth
 m.sty"
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks43
-\thm@bodyfont=\toks44
-\thm@headfont=\toks45
-\thm@notefont=\toks46
-\thm@headpunct=\toks47
+\thm@style=\toks45
+\thm@bodyfont=\toks46
+\thm@headfont=\toks47
+\thm@notefont=\toks48
+\thm@headpunct=\toks49
 \thm@preskip=\skip60
 \thm@postskip=\skip61
 \thm@headsep=\skip62
-\dth@everypar=\toks48
+\dth@everypar=\toks50
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ams
 symb.sty"
@@ -1027,8 +1035,8 @@ Package: ifoption 2002/03/04 v1.02
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/amsrefs\rkey
 val.sty"
 Package: rkeyval 2004/05/05 v1.08
-\@temptokenb=\toks49
-\rsk@toks=\toks50
+\@temptokenb=\toks51
+\rsk@toks=\toks52
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/amsrefs\text
 cmds.sty"
@@ -1038,14 +1046,42 @@ Package: textcmds 2012/08/02 v2.00
 scinet.sty"
 Package: mathscinet 2002/04/17 v1.05
 )
-\c@bib=\count331
+\c@bib=\count332
 \@maxlabelwidth=\dimen310
-\c@bib@env=\count332
+\c@bib@env=\count333
 \bib@dbfile=\read4
-\alpha@suffix=\count333
-\series@index=\count334
+\alpha@suffix=\count334
+\series@index=\count335
+)
+("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/listings\lis
+tings.sty"
+\lst@mode=\count336
+\lst@gtempboxa=\box74
+\lst@token=\toks53
+\lst@length=\count337
+\lst@currlwidth=\dimen311
+\lst@column=\count338
+\lst@pos=\count339
+\lst@lostspace=\dimen312
+\lst@width=\dimen313
+\lst@newlines=\count340
+\lst@lineno=\count341
+\lst@maxwidth=\dimen314
+
+("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/listings\lst
+misc.sty"
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count342
+\lst@skipnumbers=\count343
+\lst@framebox=\box75
+)
+("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/listings\lis
+tings.cfg"
+File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 7.
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 4.
 
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd"
@@ -1054,22 +1090,22 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 No file main.aux.
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1116,17 +1152,17 @@ Dictionary: translator-basic-dictionary, Language: English
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\
 supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
-\scratchdimen=\dimen311
-\scratchbox=\box72
-\nofMPsegments=\count336
-\nofMParguments=\count337
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count338
-\MPscratchDim=\dimen312
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count344
+\scratchdimen=\dimen315
+\scratchbox=\box76
+\nofMPsegments=\count345
+\nofMParguments=\count346
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count347
+\MPscratchDim=\dimen316
+\MPnumerator=\count348
+\makeMPintoPDFobject=\count349
+\everyMPtoPDFconversion=\toks55
 )
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg
 \epstopdf-base.sty"
@@ -1135,13 +1171,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.17} (current compat level: 1.14).
 
-Package hyperref Info: Link coloring OFF on input line 7.
+Package hyperref Info: Link coloring OFF on input line 4.
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nam
 eref.sty"
@@ -1155,22 +1193,23 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count341
+\c@section@level=\count350
 )
-LaTeX Info: Redefining \ref on input line 7.
-LaTeX Info: Redefining \pageref on input line 7.
-LaTeX Info: Redefining \nameref on input line 7.
+LaTeX Info: Redefining \ref on input line 4.
+LaTeX Info: Redefining \pageref on input line 4.
+LaTeX Info: Redefining \nameref on input line 4.
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
+\c@lstlisting=\count351
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
 .
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 "
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
 .
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
@@ -1178,71 +1217,109 @@ LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-7.
+4.
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.f
 d"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-7.
+4.
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.f
 d"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 7.
+(Font)              <12> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 7.
+(Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 7.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 7.
+(Font)              <6> on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ums
 a.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 7.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ums
 b.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-7.
+4.
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmss.f
 d"
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-7.
+4.
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmtt.f
 d"
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 10.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 10.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 10.
+<Pictures/BuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000withRe
+solution9000x6000high.png, id=6, 9033.75pt x 6022.5pt>
+File: Pictures/BuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000w
+ithResolution9000x6000high.png Graphic file (type png)
+<use Pictures/BuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000wi
+thResolution9000x6000high.png>
+Package pdftex.def Info: Pictures/BuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0i
+mWithIteration1000withResolution9000x6000high.png  used on input line 13.
+(pdftex.def)             Requested size: 532.0695pt x 354.62602pt.
  [1
 
-{C:/Users/Ambros D. Anrig/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+{C:/Users/Ambros D. Anrig/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <C:/Us
+ers/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbeit_Ambr
+os/Maturaarbeit/Pictures/BuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIter
+ation1000withResolution9000x6000high.png>]
+\openout2 = `Kapitel/Vorwort.aux'.
+
+
+("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
+it_Ambros/Maturaarbeit\Kapitel/Vorwort.tex"
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
+.
+
+("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+Underfull \hbox (badness 10000) in paragraph at lines 2--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--24
+
+ []
+
+[2
+
+]
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
-[2
+ [0
+
+
 
 ]
 \openout2 = `Kapitel/Kapitel01.aux'.
 
 
 ("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
-it_Ambros/Maturaarbeit\Kapitel/Kapitel01.tex") [3
+it_Ambros/Maturaarbeit\Kapitel/Kapitel01.tex")pdfTeX warning (ext4): destinatio
+n with the same identifier (name{page.1}) has been already used, duplicate igno
+red
+<to be read again> 
+                   \relax 
+l.31 \include{Kapitel/Kapitel01}
+                                 [1
 
 ]
 \openout2 = `Kapitel/Kapitel02.aux'.
@@ -1250,49 +1327,73 @@ it_Ambros/Maturaarbeit\Kapitel/Kapitel01.tex") [3
 
 ("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
 it_Ambros/Maturaarbeit\Kapitel/Kapitel02.tex"
-Underfull \hbox (badness 10000) in paragraph at lines 21--24
+<Pictures/Kochkurve.png, id=31, 378.213pt x 167.4255pt>
+File: Pictures/Kochkurve.png Graphic file (type png)
+<use Pictures/Kochkurve.png>
+Package pdftex.def Info: Pictures/Kochkurve.png  used on input line 26.
+(pdftex.def)             Requested size: 241.84843pt x 107.06253pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--31
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--24
+LaTeX Warning: `h' float specifier changed to `ht'.
 
- []
-
-[4
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.31 
+      [2
 
 
 
 ]
-<Pictures/Kochkurve.png, id=40, 378.213pt x 167.4255pt>
-File: Pictures/Kochkurve.png Graphic file (type png)
-<use Pictures/Kochkurve.png>
-Package pdftex.def Info: Pictures/Kochkurve.png  used on input line 27.
-(pdftex.def)             Requested size: 241.84843pt x 107.06253pt.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
 3.
 
 ("C:\Users\Ambros D. Anrig\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 "
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [5 <C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Matur
-aarbeit_Ambros/Maturaarbeit/Pictures/Kochkurve.png>] [6]
+)
+<Pictures/Mandelbrot2668x4002.png, id=47, 4017.0075pt x 2678.005pt>
+File: Pictures/Mandelbrot2668x4002.png Graphic file (type png)
+<use Pictures/Mandelbrot2668x4002.png>
+Package pdftex.def Info: Pictures/Mandelbrot2668x4002.png  used on input line 4
+4.
+(pdftex.def)             Requested size: 241.84843pt x 161.20459pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3 <C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaar
+beit_Ambros/Maturaarbeit/Pictures/Kochkurve.png>]
+File: Pictures/BuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000w
+ithResolution9000x6000high.png Graphic file (type png)
+<use Pictures/BuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000wi
+thResolution9000x6000high.png>
+Package pdftex.def Info: Pictures/BuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0i
+mWithIteration1000withResolution9000x6000high.png  used on input line 55.
+(pdftex.def)             Requested size: 241.84843pt x 161.18529pt.
+) [4 <C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Matura
+arbeit_Ambros/Maturaarbeit/Pictures/Mandelbrot2668x4002.png>]
 \openout2 = `Kapitel/Kapitel03.aux'.
 
 
 ("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
-it_Ambros/Maturaarbeit\Kapitel/Kapitel03.tex") [7
+it_Ambros/Maturaarbeit\Kapitel/Kapitel03.tex") [5
 
 
 
-] [8]
+] [6]
 \openout2 = `Kapitel/Kapitel04.aux'.
 
 
 ("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
 it_Ambros/Maturaarbeit\Kapitel/Kapitel04.tex"
 <Pictures/1AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000
-withResolution4000x2667.png, id=70, 4015.0pt x 2677.00125pt>
+withResolution4000x2667.png, id=78, 4015.0pt x 2677.00125pt>
 File: Pictures/1AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteratio
 n1000withResolution4000x2667.png Graphic file (type png)
 <use Pictures/1AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration
@@ -1301,7 +1402,7 @@ Package pdftex.def Info: Pictures/1AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5
 + 0.0imWithIteration1000withResolution4000x2667.png  used on input line 10.
 (pdftex.def)             Requested size: 237.01411pt x 157.99889pt.
 <Pictures/2AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000
-withResolution4000x2667.png, id=71, 4015.0pt x 2677.00125pt>
+withResolution4000x2667.png, id=79, 4015.0pt x 2677.00125pt>
 File: Pictures/2AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteratio
 n1000withResolution4000x2667.png Graphic file (type png)
 <use Pictures/2AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration
@@ -1310,7 +1411,7 @@ Package pdftex.def Info: Pictures/2AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5
 + 0.0imWithIteration1000withResolution4000x2667.png  used on input line 12.
 (pdftex.def)             Requested size: 237.01411pt x 157.99889pt.
 <Pictures/3AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000
-withResolution4000x2667.png, id=72, 4015.0pt x 2677.00125pt>
+withResolution4000x2667.png, id=80, 4015.0pt x 2677.00125pt>
 File: Pictures/3AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteratio
 n1000withResolution4000x2667.png Graphic file (type png)
 <use Pictures/3AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration
@@ -1319,7 +1420,7 @@ Package pdftex.def Info: Pictures/3AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5
 + 0.0imWithIteration1000withResolution4000x2667.png  used on input line 14.
 (pdftex.def)             Requested size: 237.01411pt x 157.99889pt.
 <Pictures/4AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration1000
-withResolution4000x2667.png, id=73, 4015.0pt x 2677.00125pt>
+withResolution4000x2667.png, id=81, 4015.0pt x 2677.00125pt>
 File: Pictures/4AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteratio
 n1000withResolution4000x2667.png Graphic file (type png)
 <use Pictures/4AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration
@@ -1328,43 +1429,34 @@ Package pdftex.def Info: Pictures/4AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5
 + 0.0imWithIteration1000withResolution4000x2667.png  used on input line 16.
 (pdftex.def)             Requested size: 237.01411pt x 157.99889pt.
 <Pictures/10AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration100
-00withResolution4000x2667.png, id=74, 4015.0pt x 2677.00125pt>
+00withResolution4000x2667.png, id=82, 4015.0pt x 2677.00125pt>
 File: Pictures/10AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIterati
 on10000withResolution4000x2667.png Graphic file (type png)
 <use Pictures/10AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteratio
 n10000withResolution4000x2667.png>
 Package pdftex.def Info: Pictures/10AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5
- + 0.0imWithIteration10000withResolution4000x2667.png  used on input line 21.
+ + 0.0imWithIteration10000withResolution4000x2667.png  used on input line 22.
 (pdftex.def)             Requested size: 237.01411pt x 157.99889pt.
 <Pictures/40AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration100
-00withResolution4000x2667.png, id=75, 4015.0pt x 2677.00125pt>
+00withResolution4000x2667.png, id=83, 4015.0pt x 2677.00125pt>
 File: Pictures/40AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIterati
 on10000withResolution4000x2667.png Graphic file (type png)
 <use Pictures/40AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteratio
 n10000withResolution4000x2667.png>
 Package pdftex.def Info: Pictures/40AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5
- + 0.0imWithIteration10000withResolution4000x2667.png  used on input line 23.
+ + 0.0imWithIteration10000withResolution4000x2667.png  used on input line 24.
 (pdftex.def)             Requested size: 237.01411pt x 157.99889pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-! LaTeX Error: There's no line here to end.
+LaTeX Warning: Reference `fig:absolute' on page 7 undefined on input line 28.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 B
-      ei Abbildung  ist der Maximal erreichte Treffer auf einem Pixel 4.
-? H
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-? return
-OK, entering \nonstopmode...
-) [9
+)
+Underfull \vbox (badness 1043) has occurred while \output is active []
+
+ [7
 
 
 
@@ -1378,17 +1470,17 @@ nte/GitHub/Maturaarbeit_Ambros/Maturaarbeit/Pictures/3AnalyBuddhabrotmengeWithZ
 oomGPU1ToPoint-0.5 + 0.0imWithIteration1000withResolution4000x2667.png> <C:/Use
 rs/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbeit_Ambro
 s/Maturaarbeit/Pictures/4AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWit
-hIteration1000withResolution4000x2667.png>] [10 <C:/Users/Ambros D. Anrig/OneDr
-ive - Kanton Glarus/Dokumente/GitHub/Maturaarbeit_Ambros/Maturaarbeit/Pictures/
-10AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration10000withReso
-lution4000x2667.png> <C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumen
-te/GitHub/Maturaarbeit_Ambros/Maturaarbeit/Pictures/40AnalyBuddhabrotmengeWithZ
-oomGPU1ToPoint-0.5 + 0.0imWithIteration10000withResolution4000x2667.png>]
+hIteration1000withResolution4000x2667.png>] [8 <C:/Users/Ambros D. Anrig/OneDri
+ve - Kanton Glarus/Dokumente/GitHub/Maturaarbeit_Ambros/Maturaarbeit/Pictures/1
+0AnalyBuddhabrotmengeWithZoomGPU1ToPoint-0.5 + 0.0imWithIteration10000withResol
+ution4000x2667.png> <C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokument
+e/GitHub/Maturaarbeit_Ambros/Maturaarbeit/Pictures/40AnalyBuddhabrotmengeWithZo
+omGPU1ToPoint-0.5 + 0.0imWithIteration10000withResolution4000x2667.png>]
 \openout2 = `Kapitel/Kapitel05.aux'.
 
 
 ("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
-it_Ambros/Maturaarbeit\Kapitel/Kapitel05.tex") [11
+it_Ambros/Maturaarbeit\Kapitel/Kapitel05.tex") [9
 
 
 
@@ -1397,7 +1489,7 @@ it_Ambros/Maturaarbeit\Kapitel/Kapitel05.tex") [11
 
 
 ("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
-it_Ambros/Maturaarbeit\Kapitel/Kapitel06.tex") [12
+it_Ambros/Maturaarbeit\Kapitel/Kapitel06.tex") [10
 
 
 
@@ -1406,7 +1498,17 @@ it_Ambros/Maturaarbeit\Kapitel/Kapitel06.tex") [12
 
 
 ("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
-it_Ambros/Maturaarbeit\Kapitel/Kapitel07.tex") [13
+it_Ambros/Maturaarbeit\Kapitel/Kapitel07.tex")
+Underfull \hbox (badness 10000) in paragraph at lines 2--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--43
+
+ []
+
+[11
 
 
 
@@ -1415,59 +1517,61 @@ it_Ambros/Maturaarbeit\Kapitel/Kapitel07.tex") [13
 
 
 ("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
-it_Ambros/Maturaarbeit\Kapitel/Literaturverzeichnis.tex") [14
+it_Ambros/Maturaarbeit\Kapitel/Literaturverzeichnis.tex"
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 45.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 45.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 45.
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+) [12
 
 
 
-] (main.aux
-(Kapitel/Kapitel01.aux) (Kapitel/Kapitel02.aux) (Kapitel/Kapitel03.aux)
-(Kapitel/Kapitel04.aux) (Kapitel/Kapitel05.aux) (Kapitel/Kapitel06.aux)
-(Kapitel/Kapitel07.aux) (Kapitel/Literaturverzeichnis.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+]
+\openout2 = `Kapitel/Anhang.aux'.
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+("C:/Users/Ambros D. Anrig/OneDrive - Kanton Glarus/Dokumente/GitHub/Maturaarbe
+it_Ambros/Maturaarbeit\Kapitel/Anhang.tex"
+<Pictures/Anhang/BuddhabrotmengeWithZoom12ToPoint-1.25 + 0.0imWithIteration150w
+ithResolution4000x2667.png, id=142, 4015.0pt x 2677.00125pt>
+File: Pictures/Anhang/BuddhabrotmengeWithZoom12ToPoint-1.25 + 0.0imWithIteratio
+n150withResolution4000x2667.png Graphic file (type png)
+<use Pictures/Anhang/BuddhabrotmengeWithZoom12ToPoint-1.25 + 0.0imWithIteration
+150withResolution4000x2667.png>
+Package pdftex.def Info: Pictures/Anhang/BuddhabrotmengeWithZoom12ToPoint-1.25 
++ 0.0imWithIteration150withResolution4000x2667.png  used on input line 6.
+(pdftex.def)             Requested size: 241.84843pt x 161.22586pt.
+<Pictures/Anhang/BuddhabrotmengeWithZoomGPU6.25ToPoint-1.25 + 0.0imWithIteratio
+n150withResolution4002x2668high.png, id=143, 4017.0075pt x 2678.005pt>
+File: Pictures/Anhang/BuddhabrotmengeWithZoomGPU6.25ToPoint-1.25 + 0.0imWithIte
+ration150withResolution4002x2668high.png Graphic file (type png)
+<use Pictures/Anhang/BuddhabrotmengeWithZoomGPU6.25ToPoint-1.25 + 0.0imWithIter
+ation150withResolution4002x2668high.png>
+Package pdftex.def Info: Pictures/Anhang/BuddhabrotmengeWithZoomGPU6.25ToPoint-
+1.25 + 0.0imWithIteration150withResolution4002x2668high.png  used on input line
+ 13.
+(pdftex.def)             Requested size: 241.84843pt x 161.20459pt.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  F805380588652CB96FCBE2A98141C14E;1434.
- ) 
+! TeX capacity exceeded, sorry [input stack size=5000].
+\caption@ifstrut #1#2->#1
+                         
+l.16 \end
+         {figure}
+If you really absolutely need more capacity,
+you can ask a wizard to enlarge me.
+
+ 
 Here is how much of TeX's memory you used:
- 33742 strings out of 479618
- 812781 string characters out of 2860239
- 1174475 words of memory out of 3000000
- 50193 multiletter control sequences out of 15000+200000
- 487430 words of font info for 86 fonts, out of 3000000 for 9000
+ 35179 strings out of 479618
+ 835108 string characters out of 2860239
+ 1196453 words of memory out of 3000000
+ 51606 multiletter control sequences out of 15000+200000
+ 488023 words of font info for 88 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,11n,91p,1643b,752s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm
--ec.enc}{C:/Users/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fonts/enc/dvips
-/lm/lm-mathsy.enc}{C:/Users/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fonts
-/enc/dvips/lm/lm-ts1.enc}{C:/Users/Ambros D. Anrig/AppData/Local/Programs/MiKTe
-X/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Ambros D. Anrig/AppData/Local/Programs
-/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Users/Ambros D. Anrig/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Ambros D. Anrig/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Ambros 
-D. Anrig/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Use
-rs/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pf
-b><C:/Users/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
-/lmr10.pfb><C:/Users/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/lm/lmr12.pfb><C:/Users/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/lm/lmr17.pfb><C:/Users/Ambros D. Anrig/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Ambros D. Anrig/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Ambros D. Anrig/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Ambros D. Anri
-g/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Ambr
-os D. Anrig/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/U
-sers/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.
-pfb><C:/Users/Ambros D. Anrig/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (14 pages, 12713033 bytes).
-PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 5000i,11n,5006p,1282b,758s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
