@@ -4,25 +4,43 @@ using Images, Colors, CUDA
 
 @time begin
     #Varierende variabeln
-    const n = Int(2668) # muss eine Gerade Zahl sein
-    const m = Int(floor(n/2*3))
-    
-    const iteration = 150
-    const anzahlThreads = 256
-     
-    const zoomPoint = -1.25 + 0im
-    const zoom = 6.48 #zoom != 0
-    
+    n = Int(2668) # muss eine Gerade Zahl sein
+    m = Int(floor(n/2*3))
+
+    iteration = 1000
+
+    anzahlThreads = 256
+
+    zoomPoint = -1.25 + 0im
+    zoom = 3. # zoom >= 1
+
     #Berechnete variabeln
     zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
-    
+
     # verschiebung des Bildes im gesamt array
-    const horizontal = floor(Int, zoomPointAsMatrixPoint[1] - n/2)        # zuerst die auf der Komplexenebene rechtere
-    const horizontal2 = floor(Int, zoomPointAsMatrixPoint[1] + n/2)
-    const vertical = floor(Int, zoomPointAsMatrixPoint[2] - m/2)      # zuerst die auf der Komplexenebene hoechere
-    const vertical2 = floor(Int, zoomPointAsMatrixPoint[2] + m/2)
+    s = 0
+    horizontal = floor(Int, zoomPointAsMatrixPoint[1] - n/2)        # zuerst die auf der Komplexenebene hoechere
+    if (horizontal < 1)
+        s = horizontal
+        horizontal = 1
+    end
+    horizontal2 = floor(Int, zoomPointAsMatrixPoint[1] + n/2) - s
+    if (horizontal2 > n*zoom)
+        horizontal -= (horizontal2 - n*zoom - 1)
+        horizontal2 = n*zoom
+    end
+    s = 0
+    vertical = floor(Int, zoomPointAsMatrixPoint[2] - m/2)      # zuerst die auf der Komplexenebene rechtere
+    if (vertical < 1)
+        s = vertical
+        vertical = 1
+    end
+    vertical2 = floor(Int, zoomPointAsMatrixPoint[2] + m/2) - s
+    if (vertical2 > m*zoom)
+        vertical -= (vertical2 - m*zoom - 1)
+        vertical2 = m*zoom
+    end   
     zoomPointAsMatrixPoint = nothing
-    
     # erstellen der Funktionen
 
     # bearbeitet das mandelbrot array so das nunroch 1 und 0 gibt, 1 fuer drausen und 0 fuer in der Menge
@@ -55,7 +73,7 @@ using Images, Colors, CUDA
         end
         return nothing
     end
-    
+
     function bench_mandel!(iteration::Int64, mandelbrotPart, r::Int8)
         f = CUDA.zeros(ComplexF64, iteration)
         f .= 3
@@ -64,7 +82,6 @@ using Images, Colors, CUDA
         mm = CUDA.size(mandelbrotPart, 2)
 
         numblocks = ceil(Int, length(mandelbrotPart)/anzahlThreads)
-
         CUDA.@sync begin
             @cuda threads=anzahlThreads blocks=numblocks mandelbrotberechnung!(nn, mm, iteration, mandelbrotPart, f, r)
         end
@@ -105,7 +122,7 @@ using Images, Colors, CUDA
         end
         return nothing
     end
-    
+
     function bench_buddhi!(iteration::Int64, maxValues, mandelbrot, r::Int8)
         f = CUDA.zeros(ComplexF64, iteration)
         f .= 3
@@ -114,26 +131,25 @@ using Images, Colors, CUDA
         mm = CUDA.size(mandelbrot,2)
         nzoom = CUDA.size(maxValues,1)
         mzoom = CUDA.size(maxValues,2)
-
         numblocks = ceil(Int, length(mandelbrot)/anzahlThreads)
         CUDA.@sync begin
             @cuda threads=anzahlThreads blocks=numblocks berechnungBuddhaBrot!(nzoom, mzoom, nn, mm, iteration, maxValues, mandelbrot, f, r)
         end
     end
-    
+
     function zeichnen(n::Int64, m::Int64, horizontal::Int64, vertical::Int64, Values, img, maxLanding::Int128)
         indexX = (blockIdx().x - 1) * blockDim().x + threadIdx().x
         strideX = blockDim().x * gridDim().x
         indexY = (blockIdx().y - 1) * blockDim().y + threadIdx().y
         strideY = blockDim().y * gridDim().y
-        
+
         for i = indexX:strideX:n
             for j = indexY:strideY:m
                 img[i, j] = RGB{Float64}(Values[i+horizontal-1, j+vertical-1]/maxLanding, Values[i+horizontal-1, j+vertical-1]/maxLanding, Values[i+horizontal-1, j+vertical-1]/maxLanding)
             end
         end
     end
-    
+
     function bench_zeich!(horizontal::Int64, vertical::Int64, Values, img, maxLanding::Int128)
         n = CUDA.size(img, 1)
         m = CUDA.size(img, 2)
@@ -143,7 +159,7 @@ using Images, Colors, CUDA
             @cuda threads=anzahlThreads blocks=numblocks zeichnen(n, m, horizontal, vertical, Values, img, maxLanding)
         end
     end
-    
+
     # mandelbrot
     mandelbrot = CUDA.Array([CUDA.ones(Int8,2, 2) for _ in 1:4])
     maxValues = CUDA.zeros(Int128, floor(Int, n*zoom), floor(Int, m*zoom))
@@ -176,7 +192,7 @@ using Images, Colors, CUDA
             bench_buddhi!(iteration, maxValues, mandelbrot[r], r)
         end
     end
-    
+
     # loeschen und neuerstellen von Arrays aufgrund Speicher-Handling
     mandelbrot = nothing
     img = CUDA.zeros(RGB{Float64}, n, m)
@@ -187,5 +203,5 @@ using Images, Colors, CUDA
     maxValues = nothing
     img_cpu = zeros(RGB{Float64}, n, m)
     img_cpu .= img
-    save(string(@__DIR__) * "/Pictures/gpu/analyse/AnalyBuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n).png", img_cpu)
+    save(string(@__DIR__) * "/Pictures/gpu/film/BuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n).png", img_cpu)
 end

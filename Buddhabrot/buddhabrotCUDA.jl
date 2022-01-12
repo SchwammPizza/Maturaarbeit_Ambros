@@ -7,19 +7,23 @@ using Images, Colors, CUDA
     const n = Int(2668)
     const m = Int(floor(n/2*3))
 
-    const iteration = 150
+    const iteration = 1000
     const anzahlThreads = 256
 
-    const zoomPoint = -.5 + 0im
-    const zoom = 1
+    const zoomPoint = -1.25 + 0im
+    zoom = 5.
 
     #Berechnete variabeln
-    const zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
+    zoomPointAsMatrixPoint = ((-imag(zoomPoint) + 1)*n*zoom/2 + 1, (real(zoomPoint) + 2)*m*zoom/3 + 1)
     println(zoomPointAsMatrixPoint)
 
     # verschiebung des Bildes im gesamt array
-    const horizontal = Int(floor(zoomPointAsMatrixPoint[1] - n/2))        # zuerst die auf der Komplexenebene rechtere
-    const vertical = Int(floor(zoomPointAsMatrixPoint[2] - m/2))      # zuerst die auf der Komplexenebene hoechere
+    horizontal = Int(floor(zoomPointAsMatrixPoint[1] - n/2))        # zuerst die auf der Komplexenebene hoehere
+
+    vertical = Int(floor(zoomPointAsMatrixPoint[2] - m/2))      # zuerst die auf der Komplexenebene rechtere
+    if vertical < 1
+        vertical = 1
+    end
     println(string(horizontal) * " " * string(vertical))
 
     # erstellen der array
@@ -133,7 +137,7 @@ using Images, Colors, CUDA
     end
 
     # Hauptprogramm
-    if (real(zoomPoint) - 3/(zoom*2) < -2) || (real(zoomPoint) + 3/(zoom*2) > 1) || (imag(zoomPoint) - 1/(zoom) < -1) || (imag(zoomPoint) + 1/(zoom) > 1)
+    if (horizontal < 1) || (horizontal+n-1 > n*zoom) || (vertical < 1) || (vertical+m-1 > m*zoom)
         println("Zoom auserhalb der Vordefinierte Bildreichweite")
         exit()
     end
@@ -150,5 +154,5 @@ using Images, Colors, CUDA
     # Bildstellung
     img_cpu = zeros(RGB{Float64}, n, m)
     img_cpu .= img
-    save(string(@__DIR__) * "/Pictures/gpu/BuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n)high.png", img_cpu)
+    save(string(@__DIR__) * "/Pictures/gpu/film/BuddhabrotmengeWithZoomGPU$(zoom)ToPoint$(zoomPoint)WithIteration$(iteration)withResolution$(m)x$(n)high.png", img_cpu)
 end
