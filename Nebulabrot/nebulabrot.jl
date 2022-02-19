@@ -2,10 +2,10 @@ using Images, Colors, CUDA
 
 @time begin
     #Varierende variabeln
-    const n = Int(480)
+    const n = Int(2668)
     const m = Int(floor(n*1.5))
 
-    iteration = 10
+    iteration = 1000
     const anzahlThreads = 256
 
     const zoomPoint = -0.5 + 0im
@@ -142,16 +142,16 @@ using Images, Colors, CUDA
         exit()
     end
 
-    bench_mandel!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration, mandelbrotR)
+    bench_mandel!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration*100, mandelbrotR)
     bench_mandel!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration*10, mandelbrotG)
-    bench_mandel!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration*100, mandelbrotB)
+    bench_mandel!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration*1, mandelbrotB)
     println("Finisched mandelbrot")
     maxValuesR = CUDA.zeros(Int128, round(Int,n*zoom), round(Int,m*zoom))
     maxValuesG = CUDA.zeros(Int128, round(Int,n*zoom), round(Int,m*zoom))
     maxValuesB = CUDA.zeros(Int128, round(Int,n*zoom), round(Int,m*zoom))
-    bench_buddhi!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration, maxValuesR, mandelbrotR)
+    bench_buddhi!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration*100, maxValuesR, mandelbrotR)
     bench_buddhi!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration*10, maxValuesG, mandelbrotG)
-    bench_buddhi!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration*100, maxValuesB, mandelbrotB)
+    bench_buddhi!(round(Int64, n*zoom), round(Int64, m*zoom), n, m, iteration*1, maxValuesB, mandelbrotB)
     println("Finisched buddhabrot")
     mandelbrotR = nothing
     mandelbrotG = nothing
