@@ -165,25 +165,25 @@ using Images, Colors, CUDA
     maxValues = CUDA.zeros(Int128, floor(Int, n*zoom), floor(Int, m*zoom))
 
     # Kontrolle ob Zoom vereinfachung moeglich
-    # if zoom > 2     
-    #     if (-horizontal2 > (28.7*n)*vertical2/(4*m) - m*9.5/4) #4. Quadrant
-    mandelbrot[1] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
-        # end
-        # if ((((vertical2-4340)^2+(horizontal2-n/2)^2>(2.5/3*m)^2) & (horizontal2 < n/2-50)) || (horizontal > 9 * n/(2*m^2)*(vertical-m)^2+n/2)) #3. Quadrant
-    mandelbrot[2] = zeros(Int8, round(Int, n/2*zoom), round(Int, 2*m*zoom/3))
-        # end
-        # if ((((vertical2-4340)^2+(horizontal-n/2)^2>(2.5/3*m)^2) & (horizontal > n/2+50)) || (horizontal2 < -9 * n/(2*m^2)*(vertical-m)^2+n/2)) #2. Quadrant
-    mandelbrot[3] = zeros(Int8, round(Int, n/2*zoom), round(Int, 2*m*zoom/3))
-        # end
-        # if (horizontal > (28.7*n)*vertical2/(3.8*m) - n*13/3.8) #1. Quadrant
-    mandelbrot[4] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
-    #     end
-    # else
-        # for i = 1:2
-            # mandelbrot[i^2] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
-            # mandelbrot[i+1] = zeros(Int8, round(Int, n/2*zoom), round(Int, 2*m*zoom/3))
-    #     end
-    # end
+    if zoom > 2     
+        if (-horizontal2 > (28.7*n)*vertical2/(4*m) - m*9.5/4) #4. Quadrant
+            mandelbrot[1] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
+        end
+        if ((((vertical2-4340)^2+(horizontal2-n/2)^2>(2.5/3*m)^2) & (horizontal2 < n/2-50)) || (horizontal > 9 * n/(2*m^2)*(vertical-m)^2+n/2)) #3. Quadrant
+            mandelbrot[2] = zeros(Int8, round(Int, n/2*zoom), round(Int, 2*m*zoom/3))
+        end
+        if ((((vertical2-4340)^2+(horizontal-n/2)^2>(2.5/3*m)^2) & (horizontal > n/2+50)) || (horizontal2 < -9 * n/(2*m^2)*(vertical-m)^2+n/2)) #2. Quadrant
+            mandelbrot[3] = zeros(Int8, round(Int, n/2*zoom), round(Int, 2*m*zoom/3))
+        end
+        if (horizontal > (28.7*n)*vertical2/(3.8*m) - n*13/3.8) #1. Quadrant
+            mandelbrot[4] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
+        end
+    else
+        for i = 1:2
+            mandelbrot[i^2] = zeros(Int8, round(Int, n/2*zoom), round(Int, m*zoom/3))
+            mandelbrot[i+1] = zeros(Int8, round(Int, n/2*zoom), round(Int, 2*m*zoom/3))
+        end
+    end
     println("Startet MainProgramm")
     # Hauptprogramm
     for r::Int8 = 1:4
